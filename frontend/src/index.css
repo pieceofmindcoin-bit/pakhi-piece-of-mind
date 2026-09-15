@@ -8,7 +8,7 @@ html {
 
 body {
     margin: 0;
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
     background-color: #FBFAF7;
     color: #2C3E3E;
     -webkit-font-smoothing: antialiased;

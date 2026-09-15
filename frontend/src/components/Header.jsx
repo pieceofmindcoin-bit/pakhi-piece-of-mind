@@ -13,8 +13,8 @@ export const NAV_LINKS = [
 ];
 
 const linkClass = ({ isActive }) =>
-  `text-sm tracking-wide transition-colors duration-300 hover:text-forest ${
-    isActive ? "text-forest font-semibold" : "text-forest-soft"
+  `relative text-sm tracking-wide transition-colors duration-300 hover:text-forest after:absolute after:left-0 after:-bottom-1 after:h-px after:bg-forest after:transition-all after:duration-300 ${
+    isActive ? "text-forest font-semibold after:w-full" : "text-forest-soft after:w-0 hover:after:w-full"
   }`;
 
 const Header = () => {

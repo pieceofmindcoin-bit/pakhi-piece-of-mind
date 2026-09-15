@@ -53,10 +53,14 @@ const Home = () => (
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="hero-headline">
               A calmer way to care for <em className="italic text-sage-dark">your mind.</em>
             </h1>
+          </Reveal>
+          <Reveal delay={0.18}>
             <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl" data-testid="hero-copy">
               A Piece of Mind is a warm, judgement-free space where individuals, teams and
               communities can find support, build emotional awareness and grow — at their own pace.
             </p>
+          </Reveal>
+          <Reveal delay={0.34}>
             <div className="mt-10 flex flex-wrap gap-4">
               <ButtonLink to="/support" testId="hero-cta-support" withArrow>
                 Explore Support
@@ -68,13 +72,13 @@ const Home = () => (
           </Reveal>
         </div>
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <Reveal delay={0.15}>
+          <Reveal delay={0.25} scale>
             <div className="relative" aria-hidden="true">
               <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sand" />
               <img
                 src="/assets/brand-mark.png"
                 alt=""
-                className="relative w-64 sm:w-80 lg:w-[380px] aspect-square object-cover rounded-t-[999px] rounded-b-[2rem] animate-float-slow"
+                className="relative w-64 sm:w-80 lg:w-[380px] aspect-square object-cover rounded-t-[999px] rounded-b-[2rem]"
               />
             </div>
           </Reveal>

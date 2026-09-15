@@ -49,6 +49,23 @@ const BENEFITS = [
   { title: "More supportive environments", copy: "Spaces where people feel safe, seen and able to thrive." },
 ];
 
+const TAILOR_FACTORS = [
+  "Team size",
+  "Employee needs",
+  "Organisational goals",
+  "Workplace environment",
+  "Wellbeing priorities",
+  "Duration",
+  "Delivery format",
+];
+
+const PROCESS = [
+  { num: "01", title: "Understand", copy: "We listen first — to your people, your context and what wellbeing means in your world." },
+  { num: "02", title: "Design", copy: "We shape a session or series around your goals, group, duration and format." },
+  { num: "03", title: "Deliver", copy: "We facilitate a warm, interactive experience that invites honest participation." },
+  { num: "04", title: "Reflect", copy: "We gather feedback and reflections, so the learning continues after we leave." },
+];
+
 const GLIMPSES = [
   { src: "/assets/glimpse-2.webp", alt: "Facilitator presenting emotional wellbeing concepts to a group", caption: "Workshop · Emotional awareness", cls: "md:col-span-3 md:row-span-2" },
   { src: "/assets/glimpse-1.webp", alt: "Participants writing and reflecting during an evening wellbeing circle", caption: "Community circle · Reflection", cls: "md:col-span-3" },
@@ -77,7 +94,7 @@ const Corporate = () => (
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <ButtonLink to="/contact" testId="corporate-hero-cta" withArrow>
-                Plan a Session
+                Enquire About a Workshop
               </ButtonLink>
               <ButtonLink to="#glimpses" variant="ghost" testId="corporate-hero-glimpses">
                 See Glimpses
@@ -165,7 +182,63 @@ const Corporate = () => (
       </div>
     </section>
 
-    <section data-testid="who-its-for" className="bg-sand/60 border-y border-line/50 py-24 lg:py-28">
+    <section data-testid="tailor-made-section" className="py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
+        <SectionIntro
+          id="tailor-made"
+          eyebrow="Tailor-Made Workshops"
+          title={<>Shaped around <em className="italic text-sage-dark">your organisation</em></>}
+          copy="No two teams are the same, so no two workshops should be either. We can tailor-make every workshop for your organisation — beginning with a conversation, not a catalogue."
+        />
+        <Reveal delay={0.12}>
+          <p className="text-base lg:text-lg leading-relaxed text-forest-soft">
+            Tell us about your people and what they’re carrying. Together, we’ll shape the
+            session around:
+          </p>
+          <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4" data-testid="tailor-made-factors">
+            {TAILOR_FACTORS.map((f) => (
+              <li key={f} className="flex items-center gap-3 text-sm lg:text-base text-forest">
+                <span className="w-1.5 h-1.5 rounded-full bg-sage-dark shrink-0" aria-hidden="true" />
+                {f}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-sm lg:text-base leading-relaxed text-forest-soft">
+            Nothing is off-the-shelf. We design with you, adjust as we go, and keep the
+            experience human from first call to final reflection.
+          </p>
+          <div className="mt-9">
+            <ButtonLink to="/contact" testId="tailor-made-cta" withArrow>
+              Create a Workshop With Us
+            </ButtonLink>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    <section data-testid="how-we-work" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <SectionIntro
+          id="how-we-work-intro"
+          eyebrow="How We Work"
+          title={<>A gentle, thoughtful <em className="italic text-sage-dark">process</em></>}
+          copy="Four quiet stages — each one unhurried, each one shaped around you."
+        />
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          {PROCESS.map(({ num, title, copy }, i) => (
+            <Reveal key={num} delay={i * 0.12}>
+              <div className="border-t-2 border-sage pt-7" data-testid={`process-step-${num}`}>
+                <span className="font-serif italic text-base text-clay-dark">{num}</span>
+                <h3 className="mt-3 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-forest-soft">{copy}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section data-testid="who-its-for" className="py-24 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
           <SectionIntro id="audiences" eyebrow="Who It Is For" title={<>Made for <em className="italic text-sage-dark">your people</em></>} copy="Every session is shaped around the group in the room — their age, context, pressures and hopes." />
