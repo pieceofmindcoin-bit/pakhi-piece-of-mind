@@ -1,0 +1,106 @@
+{
+  "theme": "light",
+  "colors": {
+    "background": "#F9F8F6",
+    "surface": "#F0EFEA",
+    "primary": "#8C9A8E",
+    "primary_hover": "#78877A",
+    "text_main": "#2D332F",
+    "text_muted": "#5C6660",
+    "border": "#D9D8D3",
+    "marquee_bg": "#8C9A8E",
+    "marquee_text": "#F9F8F6"
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Manrope",
+      "body": "DM Sans"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight",
+      "h3": "text-2xl sm:text-3xl tracking-tight",
+      "body": "text-base lg:text-lg leading-relaxed text-[#5C6660]"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": "Very subtle ambient shadows only for floating elements, e.g. shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+    "borders": "1px solid #D9D8D3 on cards, no heavy rounded borders, keep max rounded-xl or rounded-2xl",
+    "gradients": "Avoid huge gradients. Solid soft colors preferred.",
+    "hover_states": "Gentle opacity shifts or slight transform (-translate-y-1) for cards. Buttons should scale very slightly and darken."
+  },
+  "motion": {
+    "scroll_reveal": "Framer Motion: initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}",
+    "marquee": "react-fast-marquee for the green bar with short wellbeing phrases.",
+    "page_transition": "Simple fade in."
+  },
+  "layouts": {
+    "spacing": "Generous spacing. Sections should use py-24 to py-32. Elements gap-8 to gap-16.",
+    "containers": "max-w-7xl mx-auto px-6 lg:px-8",
+    "split_layout": "grid md:grid-cols-2 gap-12 lg:gap-24 items-center"
+  },
+  "component_instructions": {
+    "header": "Sticky with backdrop-blur-xl bg-[#F9F8F6]/80, 1px bottom border border-border/40. No transparent headers.",
+    "footer": "Solid surface background #F0EFEA, large padding py-24, elegant typographic logo treatment.",
+    "cards": "Subtle borders border-[#D9D8D3], bg-[#F9F8F6] or bg-[#F0EFEA], rounded-2xl, generous internal padding p-8 to p-12. No excessive shadows.",
+    "buttons": "Pill-shaped (rounded-full), bg-[#8C9A8E] text-white hover:bg-[#78877A] transition-all duration-300 px-8 py-4",
+    "accordion": "Shadcn accordion, customize to have no outside border, just bottom borders on items, soft text colors.",
+    "form": "Shadcn forms, inputs with rounded-lg, border-[#D9D8D3], bg-transparent focus:ring-1 focus:ring-[#8C9A8E].",
+    "icons": "Use lucide-react with thin stroke widths (1.5) and text-[#8C9A8E]."
+  },
+  "pages": {
+    "Home": [
+      "Hero: Brand/logo treatment using typography, no photograph, calm copy.",
+      "Three Ways to Find Support: 3 cards, icons only, clean and spaced.",
+      "Marquee: Green background (#8C9A8E), white text (#F9F8F6), continuous scrolling phrases ('Find your balance', 'A piece of mind', 'Breathe deeply').",
+      "Approach/Philosophy: Split layout (text left, soft colored box right).",
+      "CTA Section: Soft surface background."
+    ],
+    "About": [
+      "Philosophy, values, approach sections. Vertical flow with generous whitespace."
+    ],
+    "Support": [
+      "Individual support, workshops, corporate wellbeing. Presented as elegant cards or split rows."
+    ],
+    "Corporate_Workshops": [
+      "Hero with intro.",
+      "Offerings, workshops, topics, audiences, benefits.",
+      "Glimpses Gallery: Use the provided abstract nature images in a masonry or neat bento grid."
+    ],
+    "FAQ": [
+      "Accordion list of questions."
+    ],
+    "Contact": [
+      "Elegant contact form (name, email, phone, message, enquiry type)."
+    ]
+  },
+  "image_urls": {
+    "glimpses_gallery": [
+      "https://images.unsplash.com/photo-1548362851-ea052637ad64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwxfHxjYWxtJTIwYWJzdHJhY3QlMjBuYXR1cmUlMjB0ZXh0dXJlfGVufDB8fHx8MTc4OTQ5NjYwOXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1657023647725-7a3616ea54af?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxjYWxtJTIwYWJzdHJhY3QlMjBuYXR1cmUlMjB0ZXh0dXJlfGVufDB8fHx8MTc4OTQ5NjYwOXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1587304798516-e17f7191a3a9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwzfHxjYWxtJTIwYWJzdHJhY3QlMjBuYXR1cmUlMjB0ZXh0dXJlfGVufDB8fHx8MTc4OTQ5NjYwOXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1528200575999-1853e416cf07?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwyfHxjYWxtJTIwYWJzdHJhY3QlMjBuYXR1cmUlMjB0ZXh0dXJlfGVufDB8fHx8MTc4OTQ5NjYwOXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxzb2Z0JTIwYmVpZ2UlMjB0ZXh0dXJlfGVufDB8fHx8MTc4OTQ5NjYxM3ww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1686806372785-fcfe9efa9b70?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxzb2Z0JTIwYmVpZ2UlMjB0ZXh0dXJlfGVufDB8fHx8MTc4OTQ5NjYxM3ww&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "libraries_to_install": [
+    "framer-motion",
+    "lucide-react",
+    "react-fast-marquee"
+  ],
+  "accessibility": "All interactive elements must include data-testid. Form inputs must have labels. Buttons must have accessible text. Contrast ratios must meet AA standards.",
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic outputs. Avoid this: make creative, distinctive frontends.",
+    "Don't make generic centered layouts. Create depth through layered design elements.",
+    "Use glass-morphism effects with backdrop filters where appropriate (e.g. headers).",
+    "You MUST NOT apply universal transition (e.g., transition: all). Add transitions for specific properties.",
+    "You MUST NOT center align the app container (.App { text-align: center; }).",
+    "Always use modern button styles, pill-shaped for this project.",
+    "NEVER use emoji characters for icons. Use lucide-react.",
+    "Every interaction needs micro-animations - hover states, transitions, scroll reveals.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "All interactive and key informational elements MUST include a data-testid attribute.",
+    "Use Shadcn components for forms, accordions, etc., but heavily customize them to remove the default SaaS look."
+  ]
+}
