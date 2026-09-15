@@ -1,24 +1,24 @@
 import Marquee from "react-fast-marquee";
-import { Sparkle } from "lucide-react";
 
 const PHRASES = [
-  "Breathe deeply",
-  "Find your balance",
-  "You are not alone",
-  "Grow at your own pace",
-  "Rest is productive",
-  "A piece of mind",
-  "Feel. Heal. Grow.",
-  "Small steps count",
+  "mental wellbeing",
+  "emotional awareness",
+  "stress",
+  "resilience",
+  "self-understanding",
+  "rest",
+  "balance",
+  "human connection",
+  "safe spaces",
 ];
 
 const MarqueeBar = () => (
   <section aria-label="Wellbeing reminders" data-testid="marquee-bar" className="bg-sage py-5 overflow-hidden">
-    <Marquee speed={40} gradient={false} pauseOnHover>
+    <Marquee speed={35} gradient={false} pauseOnHover>
       {PHRASES.map((p) => (
-        <span key={p} className="flex items-center gap-8 pr-8 text-cream font-heading font-medium tracking-wide text-sm sm:text-base">
-          {p}
-          <Sparkle size={13} strokeWidth={1.5} className="text-cream/60" aria-hidden="true" />
+        <span key={p} className="flex items-center text-forest font-serif italic text-base sm:text-lg tracking-wide">
+          <span className="px-6">{p}</span>
+          <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-forest/50" />
         </span>
       ))}
     </Marquee>

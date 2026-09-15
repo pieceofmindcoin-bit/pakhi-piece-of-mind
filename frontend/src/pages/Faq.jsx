@@ -9,40 +9,44 @@ const FAQS = [
     a: "We offer one-to-one individual support sessions, interactive wellbeing workshops, and corporate wellbeing programmes for schools, teams and workplaces.",
   },
   {
-    q: "Do I need to be going through something serious to reach out?",
-    a: "Not at all. Many people come simply to understand themselves better, manage everyday stress, or build emotional awareness. You don’t need a crisis to care for your mind.",
+    q: "Who can access support?",
+    a: "Anyone. You don’t need to be going through something serious — many people come simply to understand themselves better, manage everyday stress, or build emotional awareness.",
   },
   {
-    q: "Are individual sessions confidential?",
-    a: "Yes. Individual sessions are private and confidential, and take place in a safe, non-judgemental space — in person or online.",
+    q: "How do individual sessions work?",
+    a: "Individual sessions are private, confidential conversations held in a safe, non-judgemental space — in person or online. They usually run for about an hour and move entirely at your pace.",
   },
   {
-    q: "Who can attend the workshops?",
-    a: "Our workshops are open to individuals, groups, students, educators and professionals. Some are designed for specific audiences such as schools or workplaces, and we’ll always help you find the right fit.",
+    q: "What are the workshops about?",
+    a: "Our workshops make mental wellbeing approachable and practical. Common themes include mental wellbeing, emotional awareness, stress management, self-awareness, resilience, communication and healthy workplace culture.",
   },
   {
-    q: "What topics do the workshops cover?",
-    a: "Common themes include mental wellbeing, emotional awareness, stress management, communication, self-awareness, resilience and healthy workplace culture. Custom themes can be designed on request.",
+    q: "Can workshops be customised?",
+    a: "Yes. We shape every workshop around the group — their age, context and needs — and can design custom themes on request.",
   },
   {
-    q: "How do corporate sessions work?",
-    a: "We begin with a conversation about your organisation’s needs, then design a session, workshop series or ongoing programme. Formats are flexible — on-site or online, one-off or year-round.",
+    q: "Who are corporate wellbeing sessions for?",
+    a: "They’re designed for workplaces, organisations, corporate teams and employee groups — anyone who wants to build a healthier, more supportive culture.",
   },
   {
-    q: "How long is a typical session or workshop?",
-    a: "Individual sessions usually run for about an hour. Workshops range from 90-minute sessions to half-day formats, depending on the topic and group.",
+    q: "Can sessions be conducted for schools?",
+    a: "Absolutely. We create age-appropriate sessions for students as well as supportive workshops for educators and staff.",
   },
   {
-    q: "How do I book a session or workshop?",
-    a: "Simply reach out through the contact form or email us. We’ll respond, understand what you’re looking for, and plan the next steps together.",
+    q: "Can sessions be conducted for organisations?",
+    a: "Yes. We work with organisations of all kinds — from single talks to workshop series and ongoing, year-round wellbeing programmes.",
   },
   {
-    q: "Can sessions be conducted online?",
-    a: "Yes. Most individual sessions, workshops and corporate programmes can be conducted online as well as in person.",
+    q: "How can I enquire about a workshop?",
+    a: "Simply send us a message through the contact form, choosing “Workshop” as your enquiry type, and tell us a little about your group. We’ll take it from there.",
+  },
+  {
+    q: "How can I book a session?",
+    a: "Reach out through the contact form and we’ll respond to understand what you’re looking for, then plan the next steps together — gently and without pressure.",
   },
   {
     q: "How can I contact A Piece of Mind?",
-    a: "You can use the contact form on this website or email hello@apieceofmind.in. We aim to respond within two working days.",
+    a: "The easiest way is the contact form on this website. Share a few details about what you need and we’ll get back to you.",
   },
 ];
 
@@ -53,14 +57,14 @@ const Faq = () => (
       description="Answers to common questions about support, workshops, corporate sessions, booking and contacting A Piece of Mind."
     />
 
-    <section data-testid="faq-hero" className="border-b border-line/60 bg-surface">
+    <section data-testid="faq-hero" className="border-b border-line/50 bg-sand/60">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-28">
         <Reveal className="max-w-2xl">
-          <p className="text-xs font-semibold tracking-[0.22em] uppercase text-sage-deep mb-6">FAQ</p>
-          <h1 className="font-heading text-4xl sm:text-5xl tracking-tight leading-tight text-ink" data-testid="faq-headline">
-            Questions, answered gently.
+          <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">FAQ</p>
+          <h1 className="font-serif text-4xl sm:text-5xl tracking-tight leading-[1.12] text-forest" data-testid="faq-headline">
+            Questions, answered <em className="italic text-sage-dark">gently.</em>
           </h1>
-          <p className="mt-6 text-base lg:text-lg leading-relaxed text-ink-muted">
+          <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft">
             Everything you might want to know about support, workshops, corporate sessions and
             how to begin.
           </p>
@@ -76,11 +80,11 @@ const Faq = () => (
               <AccordionItem key={q} value={`item-${i}`} className="border-b border-line">
                 <AccordionTrigger
                   data-testid={`faq-question-${i + 1}`}
-                  className="text-left font-heading text-base lg:text-lg font-semibold text-ink hover:text-sage-deep hover:no-underline py-6"
+                  className="text-left font-serif text-base lg:text-lg font-semibold text-forest hover:text-sage-dark hover:no-underline py-6"
                 >
                   {q}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm lg:text-base leading-relaxed text-ink-muted pb-6">
+                <AccordionContent className="text-sm lg:text-base leading-relaxed text-forest-soft pb-6">
                   {a}
                 </AccordionContent>
               </AccordionItem>
@@ -88,7 +92,7 @@ const Faq = () => (
           </Accordion>
         </Reveal>
         <Reveal delay={0.1} className="mt-16 text-center">
-          <p className="text-base text-ink-muted">Still wondering about something?</p>
+          <p className="text-base text-forest-soft">Still wondering about something?</p>
           <div className="mt-5">
             <ButtonLink to="/contact" testId="faq-cta-contact" withArrow>
               Ask Us Directly

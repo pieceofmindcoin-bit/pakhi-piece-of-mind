@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        body: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -18,19 +18,26 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       colors: {
-        cream: '#F9F8F6',
-        surface: '#F0EFEA',
+        forest: {
+          DEFAULT: '#2C3E3E',
+          soft: '#44575A',
+        },
         sage: {
-          DEFAULT: '#8C9A8E',
-          dark: '#78877A',
-          deep: '#5C6B5E',
-          light: '#E4E8E1',
+          DEFAULT: '#B7C9B3',
+          dark: '#8CA389',
+          light: '#E7EEE4',
         },
-        ink: {
-          DEFAULT: '#2D332F',
-          muted: '#5C6660',
+        sand: {
+          DEFAULT: '#F2E9DC',
+          deep: '#E6D9C6',
         },
-        line: '#D9D8D3',
+        clay: {
+          DEFAULT: '#DDBEBE',
+          dark: '#C9A3A3',
+          light: '#F3E7E7',
+        },
+        offwhite: '#FBFAF7',
+        line: '#DDD8CE',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -83,13 +90,13 @@ module.exports = {
         },
         'float-slow': {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-14px)' }
+          '50%': { transform: 'translateY(-12px)' }
         }
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        'float-slow': 'float-slow 7s ease-in-out infinite'
+        'accordion-down': 'accordion-down 0.25s ease-out',
+        'accordion-up': 'accordion-up 0.25s ease-out',
+        'float-slow': 'float-slow 8s ease-in-out infinite'
       }
     }
   },

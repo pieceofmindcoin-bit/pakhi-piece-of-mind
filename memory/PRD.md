@@ -20,10 +20,11 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 - Responsive desktop/tablet/mobile; data-testids on interactive elements; per-page SEO titles/meta.
 
 ## Implemented
-- 2026-09-15: Complete site in one pass — all 6 pages, header/footer, marquee (positioned after Three Ways), Glimpses gallery on Corporate page, FAQ accordion (10 Qs), contact form -> MongoDB, scroll reveals, mobile menu, SEO titles. Verified: curl /api/ + POST /api/contact OK; screenshots of home hero/marquee/cards, corporate glimpses, FAQ accordion, contact submit (toast confirmed), mobile menu.
+- 2026-09-15: Complete site in one pass — all 6 pages, header/footer, marquee (positioned after Three Ways), Glimpses gallery on Corporate page, FAQ accordion, contact form -> MongoDB, scroll reveals, mobile menu, SEO titles.
+- 2026-09-15 (v2 rebrand): Applied official brand system — Playfair Display throughout, exact palette (Forest #2C3E3E, Sage #B7C9B3, Sand #F2E9DC, Clay #DDBEBE, Off-White #FBFAF7), editorial serif style with italic accent words (reference: apieceofmind.netlify.app). Integrated real brand assets: blob artwork as logo/hero/favicon, 4 real workshop photos (EXIF/rotation corrected) in Glimpses editorial grid + section imagery. Expanded About (pillars: safe spaces, emotional awareness, self-understanding, human connection), Corporate (8 wellbeing areas, 7 workshop themes, 6 audiences, 6 benefits), FAQ (11 client-specified questions), Contact ("Let's Connect", enquiry types per spec, no invented contact details). Header scroll state, reduced-motion support, focus states. Verified: no console errors, all routes, marquee position, mobile form submit.
 
 ## Backlog / Next Tasks
-- P1: Replace Glimpses placeholder images + footer/contact placeholders (email, phone, location, socials) with real brand assets.
+- P1: Real contact details (email, phone, social URLs) — currently placeholders per client request.
 - P1: Email notification on contact form submission (e.g. Resend).
 - P2: Admin view to read contact enquiries.
 - P2: Blog / resources section.

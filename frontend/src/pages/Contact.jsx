@@ -1,20 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 import Seo from "@/components/Seo";
 import Reveal from "@/components/Reveal";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
-const ENQUIRY_TYPES = ["Individual Support", "Workshop Enquiry", "Corporate Wellbeing", "General"];
+const ENQUIRY_TYPES = ["Individual Support", "Workshop", "Corporate Wellbeing", "General Enquiry"];
 
 const inputClass =
-  "w-full rounded-lg border border-line bg-transparent px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 outline-none transition-colors duration-300 focus:border-sage focus:ring-1 focus:ring-sage";
+  "w-full rounded-lg border border-line bg-offwhite px-4 py-3 text-sm text-forest placeholder:text-forest-soft/50 outline-none transition-colors duration-300 focus:border-sage-dark focus:ring-1 focus:ring-sage-dark";
 
 const Field = ({ label, htmlFor, children }) => (
   <div className="space-y-2">
-    <label htmlFor={htmlFor} className="block text-sm font-semibold text-ink">
+    <label htmlFor={htmlFor} className="block text-sm font-semibold text-forest">
       {label}
     </label>
     {children}
@@ -35,7 +35,7 @@ const Contact = () => {
       toast.success("Thank you — your message has been received. We'll be in touch soon.");
       setForm({ name: "", email: "", phone: "", enquiry_type: ENQUIRY_TYPES[0], message: "" });
     } catch {
-      toast.error("Something went wrong. Please try again, or email us directly.");
+      toast.error("Something went wrong. Please try again in a moment.");
     } finally {
       setSubmitting(false);
     }
@@ -45,19 +45,20 @@ const Contact = () => {
     <>
       <Seo
         title="Contact — A Piece of Mind"
-        description="Reach out to A Piece of Mind — whether for individual support, a workshop, or corporate wellbeing, we'd love to hear from you."
+        description="Let's connect — reach out to A Piece of Mind for individual support, workshops or corporate wellbeing."
       />
 
-      <section data-testid="contact-hero" className="border-b border-line/60 bg-surface">
+      <section data-testid="contact-hero" className="border-b border-line/50 bg-sand/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-28">
           <Reveal className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.22em] uppercase text-sage-deep mb-6">Contact</p>
-            <h1 className="font-heading text-4xl sm:text-5xl tracking-tight leading-tight text-ink" data-testid="contact-headline">
-              We’d love to hear from you.
+            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">Contact</p>
+            <h1 className="font-serif text-4xl sm:text-5xl tracking-tight leading-[1.12] text-forest" data-testid="contact-headline">
+              Let’s <em className="italic text-sage-dark">connect.</em>
             </h1>
-            <p className="mt-6 text-base lg:text-lg leading-relaxed text-ink-muted">
+            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft">
               Whether you’re seeking support, curious about a workshop, or planning wellbeing
-              for your organisation — start the conversation here.
+              for your organisation — start the conversation here. There’s no pressure and no
+              wrong way to begin.
             </p>
           </Reveal>
         </div>
@@ -136,7 +137,7 @@ const Contact = () => {
                   type="submit"
                   data-testid="contact-submit-button"
                   disabled={submitting}
-                  className="rounded-full bg-sage px-10 py-4 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-sage-dark disabled:opacity-60"
+                  className="rounded-full bg-forest px-10 py-4 text-sm font-semibold text-offwhite transition-all duration-300 hover:bg-forest-soft hover:-translate-y-0.5 disabled:opacity-60"
                 >
                   {submitting ? "Sending…" : "Send Message"}
                 </button>
@@ -145,49 +146,46 @@ const Contact = () => {
           </div>
           <aside className="lg:col-span-5">
             <Reveal delay={0.12}>
-              <div className="rounded-2xl bg-surface border border-line/60 p-8 lg:p-10 space-y-8">
+              <div className="rounded-[2rem] bg-sand/60 border border-line/50 p-8 lg:p-10 space-y-8">
                 <div>
-                  <h2 className="font-heading text-xl font-semibold text-ink">Other ways to reach us</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                    We aim to respond within two working days.
+                  <h2 className="font-serif text-xl font-semibold text-forest">Other ways to reach us</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-forest-soft">
+                    We read every message and respond with care.
                   </p>
                 </div>
-                <ul className="space-y-5 text-sm text-ink-muted">
+                <ul className="space-y-5 text-sm text-forest-soft">
                   <li className="flex items-center gap-4">
-                    <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-sage-deep shrink-0">
+                    <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-forest shrink-0">
                       <Mail size={17} strokeWidth={1.5} />
                     </span>
-                    <a href="mailto:hello@apieceofmind.in" data-testid="contact-email-link" className="transition-colors duration-300 hover:text-sage-deep">
-                      hello@apieceofmind.in
-                    </a>
+                    <span data-testid="contact-email-text">Email · to be added</span>
                   </li>
                   <li className="flex items-center gap-4">
-                    <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-sage-deep shrink-0">
+                    <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-forest shrink-0">
                       <Phone size={17} strokeWidth={1.5} />
                     </span>
-                    <span data-testid="contact-phone-text">+91 00000 00000</span>
+                    <span data-testid="contact-phone-text">Phone · to be added</span>
                   </li>
                   <li className="flex items-center gap-4">
-                    <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-sage-deep shrink-0">
+                    <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-forest shrink-0">
                       <MapPin size={17} strokeWidth={1.5} />
                     </span>
-                    <span data-testid="contact-location-text">Your City, India · In person & online</span>
+                    <span data-testid="contact-location-text">In person & online sessions</span>
                   </li>
                 </ul>
                 <div className="border-t border-line/60 pt-7">
-                  <p className="text-sm font-semibold text-ink mb-4">Follow along</p>
+                  <p className="text-sm font-semibold text-forest mb-4">Follow along</p>
                   <div className="flex gap-3">
                     {[
                       { label: "Instagram", Icon: Instagram },
                       { label: "LinkedIn", Icon: Linkedin },
-                      { label: "Facebook", Icon: Facebook },
                     ].map(({ label, Icon }) => (
                       <a
                         key={label}
                         href="#"
-                        aria-label={label}
+                        aria-label={`${label} (link to be added)`}
                         data-testid={`contact-social-${label.toLowerCase()}`}
-                        className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-ink-muted transition-colors duration-300 hover:bg-sage hover:text-cream hover:border-sage"
+                        className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-forest-soft transition-colors duration-300 hover:bg-sage hover:text-forest hover:border-sage"
                       >
                         <Icon size={17} strokeWidth={1.5} />
                       </a>
