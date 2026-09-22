@@ -1,10 +1,15 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { HeartHandshake, Building2, Sprout, ArrowRight } from "lucide-react";
 import Seo from "@/components/Seo";
 import Reveal from "@/components/Reveal";
+import MaskedLines from "@/components/MaskedLines";
 import SectionIntro from "@/components/SectionIntro";
 import MarqueeBar from "@/components/MarqueeBar";
 import FinalCta from "@/components/FinalCta";
+
+const EASE = [0.22, 1, 0.36, 1];
 
 const SUPPORT_WAYS = [
   {
@@ -42,6 +47,49 @@ const PRINCIPLES = [
   { title: "Practical and gentle", copy: "Simple tools you can actually use in everyday life." },
 ];
 
+const HeroArt = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [5, -5]), { stiffness: 50, damping: 16 });
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-6, 6]), { stiffness: 50, damping: 16 });
+
+  return (
+    <div
+      ref={ref}
+      className="lg:col-span-5 flex justify-center lg:justify-end"
+      style={{ perspective: 900 }}
+      onMouseMove={(e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        mx.set((e.clientX - r.left) / r.width - 0.5);
+        my.set((e.clientY - r.top) / r.height - 0.5);
+      }}
+      onMouseLeave={() => {
+        mx.set(0);
+        my.set(0);
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94, y: 26 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1.1, delay: 0.55, ease: EASE }}
+        style={{ rotateX, rotateY, y, transformStyle: "preserve-3d" }}
+        className="relative"
+        aria-hidden="true"
+      >
+        <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sand" />
+        <img
+          src="/assets/brand-mark.png"
+          alt=""
+          className="relative w-64 sm:w-80 lg:w-[380px] aspect-square object-cover rounded-t-[999px] rounded-b-[2rem]"
+        />
+      </motion.div>
+    </div>
+  );
+};
+
 const Home = () => (
   <>
     <Seo
@@ -52,45 +100,51 @@ const Home = () => (
     <section data-testid="hero-section" className="relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 min-h-[calc(100svh-5rem)] py-16 lg:py-20 grid lg:grid-cols-12 gap-14 lg:gap-10 items-center">
         <div className="lg:col-span-7">
-          <Reveal>
-            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6" data-testid="hero-eyebrow">
-              Piece of Mind · Mental Wellbeing
-            </p>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="hero-headline">
-              Every piece of you <em className="italic text-sage-dark">matters.</em>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.18}>
-            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl" data-testid="hero-copy">
-              A warm, non-judgmental practice for therapy, wellbeing and learning — online
-              worldwide and in-person in Pune.
-            </p>
-          </Reveal>
-          <Reveal delay={0.34}>
-            <div className="mt-10">
-              <Link
-                to="/contact"
-                data-testid="hero-cta-book"
-                className="group inline-flex items-center gap-2 rounded-full bg-forest px-8 py-3.5 text-sm font-semibold tracking-wide text-offwhite transition-all duration-300 hover:bg-forest-soft hover:-translate-y-0.5"
-              >
-                Book a therapy session
-                <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </Reveal>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+            className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6"
+            data-testid="hero-eyebrow"
+          >
+            Piece of Mind · Mental Wellbeing
+          </motion.p>
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="hero-headline">
+            <MaskedLines
+              delay={0.25}
+              lines={[
+                "Every piece of you",
+                <em key="matters" className="italic text-sage-dark">matters.</em>,
+              ]}
+            />
+          </h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.8, ease: EASE }}
+            className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl"
+            data-testid="hero-copy"
+          >
+            A warm, non-judgmental practice for therapy, wellbeing and learning — online
+            worldwide and in-person in Pune.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.95, ease: EASE }}
+            className="mt-10"
+          >
+            <Link
+              to="/contact"
+              data-testid="hero-cta-book"
+              className="group inline-flex items-center gap-2 rounded-full bg-forest px-8 py-3.5 text-sm font-semibold tracking-wide text-offwhite transition-all duration-300 hover:bg-forest-soft hover:-translate-y-0.5"
+            >
+              Book a therapy session
+              <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
         </div>
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <Reveal delay={0.25} scale>
-            <div className="relative" aria-hidden="true">
-              <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sand" />
-              <img
-                src="/assets/brand-mark.png"
-                alt=""
-                className="relative w-64 sm:w-80 lg:w-[380px] aspect-square object-cover rounded-t-[999px] rounded-b-[2rem]"
-              />
-            </div>
-          </Reveal>
-        </div>
+        <HeroArt />
       </div>
     </section>
 
@@ -160,13 +214,15 @@ const Home = () => (
             title={<>Wellbeing, made <em className="italic text-sage-dark">practical</em></>}
             copy="We believe mental wellbeing is not a luxury or a last resort — it is a life skill. Our work blends emotional awareness, gentle support and practical learning, always inside spaces that feel safe."
           />
-          <div className="mt-10 space-y-6">
+          <div className="mt-12">
             {PRINCIPLES.map(({ title, copy }, i) => (
-              <Reveal key={title} delay={i * 0.08} className="flex gap-5 items-start border-t border-line/70 pt-6">
-                <span className="font-serif italic text-lg text-sage-dark shrink-0 w-8">{`0${i + 1}`}</span>
+              <Reveal key={title} delay={i * 0.12} className="flex gap-6 lg:gap-8 items-baseline border-t border-line/70 py-7">
+                <span className="font-serif text-3xl lg:text-4xl leading-none text-sage-dark/80 shrink-0 w-14" aria-hidden="true">
+                  {`0${i + 1}`}
+                </span>
                 <div>
-                  <h3 className="font-serif text-lg font-semibold text-forest">{title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-forest-soft">{copy}</p>
+                  <h3 className="font-serif text-xl lg:text-2xl font-semibold text-forest">{title}</h3>
+                  <p className="mt-2 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
                 </div>
               </Reveal>
             ))}

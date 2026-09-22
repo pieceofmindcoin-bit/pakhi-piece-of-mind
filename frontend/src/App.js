@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import SmoothScroll from "@/components/SmoothScroll";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Therapy from "@/pages/Therapy";
@@ -17,6 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SmoothScroll />
       <div className="min-h-screen bg-offwhite font-sans text-forest flex flex-col">
         <Header />
         <main className="flex-1">

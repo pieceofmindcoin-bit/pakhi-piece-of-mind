@@ -1,5 +1,6 @@
 import Seo from "@/components/Seo";
 import Reveal from "@/components/Reveal";
+import MaskedLines from "@/components/MaskedLines";
 import SectionIntro from "@/components/SectionIntro";
 import ButtonLink from "@/components/ButtonLink";
 import FinalCta from "@/components/FinalCta";
@@ -56,13 +57,17 @@ const Therapy = () => (
 
     <section data-testid="therapy-statement" className="py-28 lg:py-40">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <Reveal>
-          <p className="font-serif text-4xl sm:text-5xl lg:text-7xl tracking-tight leading-[1.15] text-forest" data-testid="therapy-statement-text">
-            a space<br />
-            <span className="text-sage-dark">to feel</span><br />
-            <em className="italic">heard</em>
-          </p>
-        </Reveal>
+        <h2 className="font-serif text-4xl sm:text-5xl lg:text-7xl tracking-tight leading-[1.15] text-forest" data-testid="therapy-statement-text">
+          <MaskedLines
+            inView
+            delay={0.1}
+            lines={[
+              "a space",
+              <span key="l2" className="text-sage-dark">to feel</span>,
+              <em key="l3" className="italic">heard</em>,
+            ]}
+          />
+        </h2>
       </div>
     </section>
 

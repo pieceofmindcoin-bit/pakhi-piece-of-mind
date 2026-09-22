@@ -29,8 +29,10 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 
 - 2026-09-22 (v5): Real contact details live — admin@peaceofmind.co.in, +91 89999 52843, Instagram @pieceofmind.co.in (footer + contact page, LinkedIn placeholder removed). OWNER_EMAIL set to admin@peaceofmind.co.in so enquiry notifications reach the real inbox (verified 202). Wellbeing Journal added: /journal list + /journal/:slug article pages, backend GET /api/journal endpoints, 3 seeded posts (idempotent startup seed), Journal added to nav/footer.
 
+- 2026-09-22 (v6 motion craft): Lenis momentum smooth scrolling (reduced-motion aware, integrated with ScrollToTop/hash nav). Signature on-load hero: masked line-by-line headline reveal (MaskedLines component) + 3D mouse-tilt and scroll parallax on the arch artwork (framer-motion springs). Therapy statement "a space to feel heard" uses masked line reveal on scroll. Approach principles restyled as numbered manifesto chapters. Verified: hero mid/settled states, tilt, statement reveal, no horizontal overflow, marquee intact, no console errors.
+
 ## Backlog / Next Tasks
-- P1: Dedicated portrait photo of Anshita Gaur (currently using supplied facilitation photo — no portrait was attached).
+- P1: Dedicated portrait photo of Anshita Gaur (user will send it; then swap into About Us anshita-photo).
 - P2: Admin UI to publish new Journal posts (currently seeded in backend code).
 - P2: Admin view to read contact enquiries.
 
