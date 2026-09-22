@@ -27,12 +27,12 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 
 - 2026-09-22 (v4 restructure to "Piece of Mind"): Brand renamed everywhere (logo, nav, pages, metadata, footer). New page architecture: Home, Individual Therapy (/individual-therapy), Corporate Well-being (/corporate-wellbeing), Workshops & Events (/workshops-events), About Us (/about), FAQ, Contact; legacy /support and /corporate-workshops redirect. Semi-circular logo mark treatment. Home hero: "Every piece of you matters." full-screen with single "Book a therapy session" CTA. Therapy page: hero, "a space to feel heard" statement, concerns, 3-step circles, 4 approach principles. About: reference copy + Anshita Gaur section (square photo, real bio from brand site). Corporate: 3 ways of working (tailor-made / call-or-audit / existing workshops with 6 examples), From brief to delivery (large circular numbers), Teams (Buildup Global, Fine Equipments), photo gallery. Workshops & Events: customise-for-circles, themes, exactly two photos. No testimonials anywhere; no light-pink text; no stats/credentials sections. Contact form now sends email notification via Emergent-managed Resend (EMERGENT_EMAIL_KEY, EMAIL_FROM_NAME="Piece of Mind", OWNER_EMAIL env; currently delivered@resend.dev test sink — needs real owner email for production). Verified: email send returns 202, all pages desktop + mobile, no overflow, no console errors.
 
+- 2026-09-22 (v5): Real contact details live — admin@peaceofmind.co.in, +91 89999 52843, Instagram @pieceofmind.co.in (footer + contact page, LinkedIn placeholder removed). OWNER_EMAIL set to admin@peaceofmind.co.in so enquiry notifications reach the real inbox (verified 202). Wellbeing Journal added: /journal list + /journal/:slug article pages, backend GET /api/journal endpoints, 3 seeded posts (idempotent startup seed), Journal added to nav/footer.
+
 ## Backlog / Next Tasks
-- P0: Set OWNER_EMAIL (backend/.env) to the owner's real inbox — currently test sink delivered@resend.dev.
-- P1: Real contact details (email, phone, social URLs) — placeholders per client request.
-- P1: Dedicated portrait photo of Anshita Gaur (currently using supplied facilitation photo).
+- P1: Dedicated portrait photo of Anshita Gaur (currently using supplied facilitation photo — no portrait was attached).
+- P2: Admin UI to publish new Journal posts (currently seeded in backend code).
 - P2: Admin view to read contact enquiries.
-- P2: Blog / resources section.
 
 ## Test Credentials
 No authentication in this app. See /app/memory/test_credentials.md.

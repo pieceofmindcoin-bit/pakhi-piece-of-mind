@@ -9,6 +9,7 @@ export const NAV_LINKS = [
   { label: "Corporate Well-being", to: "/corporate-wellbeing" },
   { label: "Workshops & Events", to: "/workshops-events" },
   { label: "About Us", to: "/about" },
+  { label: "Journal", to: "/journal" },
 ];
 
 const linkClass = ({ isActive }) =>

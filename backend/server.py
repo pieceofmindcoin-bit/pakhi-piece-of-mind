@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -167,6 +167,68 @@ async def create_contact_message(input: ContactMessageCreate):
         logger.error(f"Enquiry notification email failed: {e}")
 
     return {"status": "received", "id": doc["id"]}
+
+
+JOURNAL_POSTS = [
+    {
+        "slug": "you-dont-have-to-have-it-all-figured-out",
+        "title": "You don't have to have it all figured out",
+        "excerpt": "On beginning therapy before you have the words — and why uncertainty is a perfectly good place to start.",
+        "date": "2026-09-01",
+        "reading_time": "3 min read",
+        "content": [
+            "Many people wait to reach out until they can explain exactly what's wrong. As if therapy were an exam you need to prepare for, rather than a room you can simply walk into.",
+            "But you don't need the right words, a clear reason, or a crisis. A quiet feeling that something's off is reason enough. So is curiosity. So is tiredness that sleep doesn't fix.",
+            "Therapy isn't about arriving with answers. It's about having a space where the questions are allowed to be messy, half-formed, or entirely absent — and where someone is trained to sit with you in that.",
+            "If you've been waiting until you can articulate it perfectly, consider this your permission to begin before then.",
+        ],
+    },
+    {
+        "slug": "rest-is-not-a-reward",
+        "title": "Rest is not a reward",
+        "excerpt": "We treat rest like something to be earned. A gentler way to think about slowing down.",
+        "date": "2026-08-18",
+        "reading_time": "3 min read",
+        "content": [
+            "Somewhere along the way, rest became a finish line — something you get to do only after everything else is done. The trouble is, everything else is never done.",
+            "Rest isn't the opposite of productivity. It's part of how a nervous system stays well. When we only allow ourselves to stop once we're depleted, we're not resting — we're recovering. There's a difference.",
+            "Try noticing the moment your body asks for a pause: the heaviness, the fog, the short temper. That signal deserves the same respect as a deadline.",
+            "You don't have to earn your rest. You only have to allow it.",
+        ],
+    },
+    {
+        "slug": "naming-what-you-feel",
+        "title": "Naming what you feel",
+        "excerpt": "A small practice with outsized effects: putting feelings into words.",
+        "date": "2026-08-04",
+        "reading_time": "2 min read",
+        "content": [
+            "'I feel bad' is honest, but it's blurry. Is it anxious? Disappointed? Lonely? Embarrassed? Each of those asks for something different.",
+            "Psychologists call it affect labelling — the simple act of putting a feeling into words. Naming an emotion doesn't make it disappear, but it does soften its grip. The feeling becomes something you can look at, rather than something you're inside of.",
+            "A gentle practice: once a day, pause and finish this sentence as precisely as you can — 'Right now, I feel…'. No judgement, no fixing. Just naming.",
+            "It's a small habit. But self-understanding is built from exactly these small habits.",
+        ],
+    },
+]
+
+
+@app.on_event("startup")
+async def seed_journal():
+    if await db.journal_posts.count_documents({}) == 0:
+        await db.journal_posts.insert_many([{**p, "id": str(uuid.uuid4())} for p in JOURNAL_POSTS])
+
+
+@api_router.get("/journal")
+async def list_journal_posts():
+    return await db.journal_posts.find({}, {"_id": 0, "content": 0}).sort("date", -1).to_list(100)
+
+
+@api_router.get("/journal/{slug}")
+async def get_journal_post(slug: str):
+    post = await db.journal_posts.find_one({"slug": slug}, {"_id": 0})
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return post
 
 
 app.include_router(api_router)

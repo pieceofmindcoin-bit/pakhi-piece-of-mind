@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import Logo from "@/components/Logo";
 import { NAV_LINKS } from "@/components/Header";
 
 const FOOTER_LINKS = [...NAV_LINKS, { label: "FAQ", to: "/faq" }, { label: "Contact", to: "/contact" }];
 
 const SOCIALS = [
-  { label: "Instagram", href: "#", Icon: Instagram },
-  { label: "LinkedIn", href: "#", Icon: Linkedin },
-  { label: "Email", href: "#", Icon: Mail },
+  { label: "Instagram", href: "https://www.instagram.com/pieceofmind.co.in", Icon: Instagram },
+  { label: "Email", href: "mailto:admin@peaceofmind.co.in", Icon: Mail },
 ];
 
 const Footer = () => (
@@ -40,8 +39,16 @@ const Footer = () => (
       <div className="space-y-4">
         <h3 className="font-serif font-semibold text-sm tracking-[0.18em] uppercase text-sage">Contact</h3>
         <ul className="space-y-3 text-sm text-offwhite/70">
-          <li data-testid="footer-email">Email · to be added</li>
-          <li data-testid="footer-phone">Phone · to be added</li>
+          <li>
+            <a href="mailto:admin@peaceofmind.co.in" data-testid="footer-email" className="transition-colors duration-300 hover:text-offwhite">
+              admin@peaceofmind.co.in
+            </a>
+          </li>
+          <li>
+            <a href="tel:+918999952843" data-testid="footer-phone" className="transition-colors duration-300 hover:text-offwhite">
+              +91 89999 52843
+            </a>
+          </li>
           <li data-testid="footer-location">Online worldwide · In-person in Pune</li>
         </ul>
       </div>

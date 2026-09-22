@@ -8,6 +8,8 @@ import About from "@/pages/About";
 import Therapy from "@/pages/Therapy";
 import Corporate from "@/pages/Corporate";
 import Workshops from "@/pages/Workshops";
+import Journal from "@/pages/Journal";
+import JournalPost from "@/pages/JournalPost";
 import Faq from "@/pages/Faq";
 import Contact from "@/pages/Contact";
 
@@ -24,6 +26,8 @@ function App() {
             <Route path="/individual-therapy" element={<Therapy />} />
             <Route path="/corporate-wellbeing" element={<Corporate />} />
             <Route path="/workshops-events" element={<Workshops />} />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/journal/:slug" element={<JournalPost />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/support" element={<Navigate to="/individual-therapy" replace />} />

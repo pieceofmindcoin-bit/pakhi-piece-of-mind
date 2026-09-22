@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import Seo from "@/components/Seo";
 import Reveal from "@/components/Reveal";
 
@@ -158,38 +158,38 @@ const Contact = () => {
                     <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-forest shrink-0">
                       <Mail size={17} strokeWidth={1.5} />
                     </span>
-                    <span data-testid="contact-email-text">Email · to be added</span>
+                    <a href="mailto:admin@peaceofmind.co.in" data-testid="contact-email-link" className="transition-colors duration-300 hover:text-forest">
+                      admin@peaceofmind.co.in
+                    </a>
                   </li>
                   <li className="flex items-center gap-4">
                     <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-forest shrink-0">
                       <Phone size={17} strokeWidth={1.5} />
                     </span>
-                    <span data-testid="contact-phone-text">Phone · to be added</span>
+                    <a href="tel:+918999952843" data-testid="contact-phone-link" className="transition-colors duration-300 hover:text-forest">
+                      +91 89999 52843
+                    </a>
                   </li>
                   <li className="flex items-center gap-4">
                     <span className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center text-forest shrink-0">
                       <MapPin size={17} strokeWidth={1.5} />
                     </span>
-                    <span data-testid="contact-location-text">In person & online sessions</span>
+                    <span data-testid="contact-location-text">Online worldwide · In-person in Pune</span>
                   </li>
                 </ul>
                 <div className="border-t border-line/60 pt-7">
                   <p className="text-sm font-semibold text-forest mb-4">Follow along</p>
                   <div className="flex gap-3">
-                    {[
-                      { label: "Instagram", Icon: Instagram },
-                      { label: "LinkedIn", Icon: Linkedin },
-                    ].map(({ label, Icon }) => (
-                      <a
-                        key={label}
-                        href="#"
-                        aria-label={`${label} (link to be added)`}
-                        data-testid={`contact-social-${label.toLowerCase()}`}
-                        className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-forest-soft transition-colors duration-300 hover:bg-sage hover:text-forest hover:border-sage"
-                      >
-                        <Icon size={17} strokeWidth={1.5} />
-                      </a>
-                    ))}
+                    <a
+                      href="https://www.instagram.com/pieceofmind.co.in"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Instagram — @pieceofmind.co.in"
+                      data-testid="contact-social-instagram"
+                      className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-forest-soft transition-colors duration-300 hover:bg-sage hover:text-forest hover:border-sage"
+                    >
+                      <Instagram size={17} strokeWidth={1.5} />
+                    </a>
                   </div>
                 </div>
               </div>
