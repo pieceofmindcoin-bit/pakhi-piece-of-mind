@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import MaskedLines from "@/components/MaskedLines";
 import SectionIntro from "@/components/SectionIntro";
 import MarqueeBar from "@/components/MarqueeBar";
+import Testimonials from "@/components/Testimonials";
 import FinalCta from "@/components/FinalCta";
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -242,6 +243,8 @@ const Home = () => (
         </Reveal>
       </div>
     </section>
+
+    <Testimonials />
 
     <FinalCta
       testId="home-cta-section"

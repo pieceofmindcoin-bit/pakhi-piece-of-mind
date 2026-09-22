@@ -31,6 +31,8 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 
 - 2026-09-22 (v6 motion craft): Lenis momentum smooth scrolling (reduced-motion aware, integrated with ScrollToTop/hash nav). Signature on-load hero: masked line-by-line headline reveal (MaskedLines component) + 3D mouse-tilt and scroll parallax on the arch artwork (framer-motion springs). Therapy statement "a space to feel heard" uses masked line reveal on scroll. Approach principles restyled as numbered manifesto chapters. Verified: hero mid/settled states, tilt, statement reveal, no horizontal overflow, marquee intact, no console errors.
 
+- 2026-09-22 (v7): Added "What people have to say" testimonial marquee to the HOMEPAGE ONLY (between approach section and final CTA) — seamless continuous right-to-left react-fast-marquee loop, pause on hover, alternating sand/sage-light rounded cards, real quotes from the brand's reference site (RG, SR, MK, PS). Verified desktop + mobile, no horizontal overflow.
+
 ## Backlog / Next Tasks
 - P1: Dedicated portrait photo of Anshita Gaur (user will send it; then swap into About Us anshita-photo).
 - P2: Admin UI to publish new Journal posts (currently seeded in backend code).
