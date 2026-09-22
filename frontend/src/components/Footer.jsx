@@ -3,6 +3,8 @@ import { Instagram, Linkedin, Mail } from "lucide-react";
 import Logo from "@/components/Logo";
 import { NAV_LINKS } from "@/components/Header";
 
+const FOOTER_LINKS = [...NAV_LINKS, { label: "FAQ", to: "/faq" }, { label: "Contact", to: "/contact" }];
+
 const SOCIALS = [
   { label: "Instagram", href: "#", Icon: Instagram },
   { label: "LinkedIn", href: "#", Icon: Linkedin },
@@ -15,14 +17,14 @@ const Footer = () => (
       <div className="space-y-5">
         <Logo light />
         <p className="text-sm leading-relaxed text-offwhite/70 max-w-xs">
-          A warm, safe space for mental wellbeing — helping individuals, teams and
-          communities pause, understand themselves and grow.
+          A non-judgmental mental health practice — individual therapy, corporate
+          well-being and community workshops. Online worldwide, in-person in Pune.
         </p>
       </div>
       <nav aria-label="Footer" className="space-y-4">
         <h3 className="font-serif font-semibold text-sm tracking-[0.18em] uppercase text-sage">Explore</h3>
         <ul className="space-y-3">
-          {NAV_LINKS.map((l) => (
+          {FOOTER_LINKS.map((l) => (
             <li key={l.to}>
               <Link
                 to={l.to}
@@ -40,7 +42,7 @@ const Footer = () => (
         <ul className="space-y-3 text-sm text-offwhite/70">
           <li data-testid="footer-email">Email · to be added</li>
           <li data-testid="footer-phone">Phone · to be added</li>
-          <li data-testid="footer-location">In person & online</li>
+          <li data-testid="footer-location">Online worldwide · In-person in Pune</li>
         </ul>
       </div>
       <div className="space-y-4">
@@ -66,7 +68,7 @@ const Footer = () => (
     <div className="border-t border-offwhite/15">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-xs text-offwhite/60" data-testid="footer-copyright">
-          © {new Date().getFullYear()} A Piece of Mind. All rights reserved.
+          © {new Date().getFullYear()} Piece of Mind. All rights reserved.
         </p>
         <p className="text-xs text-offwhite/60">Made with care, for calmer minds.</p>
       </div>

@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
-const ENQUIRY_TYPES = ["Individual Support", "Workshop", "Corporate Wellbeing", "General Enquiry"];
+const ENQUIRY_TYPES = ["Individual Therapy", "Workshop", "Corporate Well-being", "General Enquiry"];
 
 const inputClass =
   "w-full rounded-lg border border-line bg-offwhite px-4 py-3 text-sm text-forest placeholder:text-forest-soft/50 outline-none transition-colors duration-300 focus:border-sage-dark focus:ring-1 focus:ring-sage-dark";
@@ -44,8 +44,8 @@ const Contact = () => {
   return (
     <>
       <Seo
-        title="Contact — A Piece of Mind"
-        description="Let's connect — reach out to A Piece of Mind for individual support, workshops or corporate wellbeing."
+        title="Contact — Piece of Mind"
+        description="Let's connect — reach out to Piece of Mind for individual support, workshops or corporate wellbeing."
       />
 
       <section data-testid="contact-hero" className="border-b border-line/50 bg-sand/60">

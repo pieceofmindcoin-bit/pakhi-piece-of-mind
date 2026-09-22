@@ -1,34 +1,29 @@
-import { Megaphone, Layers, CalendarHeart, ArrowUpRight } from "lucide-react";
 import Seo from "@/components/Seo";
 import Reveal from "@/components/Reveal";
 import SectionIntro from "@/components/SectionIntro";
 import ButtonLink from "@/components/ButtonLink";
+import FinalCta from "@/components/FinalCta";
 
-const AREAS = [
-  { title: "Workplace wellbeing sessions", copy: "Regular, grounded sessions that make wellbeing part of the working week." },
-  { title: "Mental wellbeing awareness", copy: "Honest, stigma-free introductions to mental health for every level of an organisation." },
-  { title: "Stress management", copy: "Understanding stress, spotting burnout early and responding with practical tools." },
-  { title: "Emotional awareness", copy: "Helping people notice, name and work with their emotions — at work and beyond." },
-  { title: "Self-awareness", copy: "Gentle reflection on patterns, needs and strengths that shape how we show up." },
-  { title: "Resilience", copy: "Building the capacity to bend without breaking through pressure and change." },
-  { title: "Communication", copy: "Listening, feedback and difficult conversations handled with clarity and care." },
-  { title: "Healthy workplace culture", copy: "Moving wellbeing from a poster on the wall to something people genuinely feel." },
-];
-
-const OFFERINGS = [
-  { Icon: Megaphone, title: "Talks & Sessions", copy: "Engaging one-off sessions that open honest conversations about mental wellbeing." },
-  { Icon: Layers, title: "Workshop Series", copy: "Multi-session journeys that build emotional awareness and practical skills over time." },
-  { Icon: CalendarHeart, title: "Ongoing Programmes", copy: "Year-round wellbeing partnerships woven into your organisation’s culture." },
-];
-
-const THEMES = [
-  { title: "Mental wellbeing", copy: "A warm, honest foundation — what mental health really is and how to care for it." },
-  { title: "Emotional awareness", copy: "Learning to notice, name and normalise feelings instead of fighting them." },
-  { title: "Stress management", copy: "Practical ways to understand pressure, prevent burnout and recover well." },
-  { title: "Self-awareness", copy: "Reflective exercises that reveal patterns, needs and personal strengths." },
-  { title: "Resilience", copy: "Tools for navigating setbacks, uncertainty and change with steadiness." },
-  { title: "Communication", copy: "Everyday skills for listening deeply and speaking with clarity and kindness." },
-  { title: "Healthy workplace culture", copy: "How teams can build trust, psychological safety and mutual support." },
+const WAYS = [
+  {
+    num: "01",
+    title: "Tailor-Made Workshops",
+    copy: "We can tailor-make workshops around the needs, culture and goals of your workplace.",
+    testId: "way-tailor-made",
+  },
+  {
+    num: "02",
+    title: "Call or Workplace Audit",
+    copy: "We can have a call or conduct an audit of the workplace, and recommend the workshop that would be most useful.",
+    testId: "way-audit",
+  },
+  {
+    num: "03",
+    title: "Choose From Existing Workshops",
+    copy: "Companies can simply select from our existing workshops.",
+    testId: "way-existing",
+    examples: ["Stress Management", "Procrastination", "Emotional Regulation", "Communication", "Anxiety Management", "Improving Focus"],
+  },
 ];
 
 const AUDIENCES = [
@@ -49,22 +44,13 @@ const BENEFITS = [
   { title: "More supportive environments", copy: "Spaces where people feel safe, seen and able to thrive." },
 ];
 
-const TAILOR_FACTORS = [
-  "Team size",
-  "Employee needs",
-  "Organisational goals",
-  "Workplace environment",
-  "Wellbeing priorities",
-  "Duration",
-  "Delivery format",
+const PROCESS = [
+  { num: "01", title: "Discovery / Brief", copy: "We listen first — to your people, your context and what wellbeing means in your world." },
+  { num: "02", title: "Workshop Design", copy: "We shape the session around your team, culture, goals and format." },
+  { num: "03", title: "Delivery", copy: "We facilitate a warm, engaging experience — and gather reflections after." },
 ];
 
-const PROCESS = [
-  { num: "01", title: "Understand", copy: "We listen first — to your people, your context and what wellbeing means in your world." },
-  { num: "02", title: "Design", copy: "We shape a session or series around your goals, group, duration and format." },
-  { num: "03", title: "Deliver", copy: "We facilitate a warm, interactive experience that invites honest participation." },
-  { num: "04", title: "Reflect", copy: "We gather feedback and reflections, so the learning continues after we leave." },
-];
+const TEAMS = ["Buildup Global", "Fine Equipments"];
 
 const GLIMPSES = [
   { src: "/assets/glimpse-2.webp", alt: "Facilitator presenting emotional wellbeing concepts to a group", caption: "Workshop · Emotional awareness", cls: "md:col-span-3 md:row-span-2" },
@@ -76,38 +62,38 @@ const GLIMPSES = [
 const Corporate = () => (
   <>
     <Seo
-      title="Corporate Wellbeing & Workshops — A Piece of Mind"
-      description="Wellbeing talks, workshops and programmes for schools, teams and workplaces — plus a glimpse of our sessions in action."
+      title="Corporate Well-being — Piece of Mind"
+      description="Tailor-made wellbeing workshops and programmes for workplaces, organisations, schools and teams — from brief to delivery."
     />
 
     <section data-testid="corporate-hero" className="border-b border-line/50 bg-sand/60">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">Corporate & Workshops</p>
-            <h1 className="font-serif text-4xl sm:text-5xl tracking-tight leading-[1.12] text-forest" data-testid="corporate-headline">
-              Corporate Wellbeing <em className="italic text-sage-dark">& Workshops</em>
+            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">Corporate Well-being</p>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="corporate-headline">
+              Wellbeing that works <em className="italic text-sage-dark">where you do.</em>
             </h1>
             <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl">
-              A Piece of Mind brings meaningful wellbeing experiences into workplaces,
+              Piece of Mind brings meaningful wellbeing experiences into workplaces,
               organisations, schools, teams and groups — thoughtful, practical and deeply human.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <ButtonLink to="/contact" testId="corporate-hero-cta" withArrow>
                 Enquire About a Workshop
               </ButtonLink>
-              <ButtonLink to="#glimpses" variant="ghost" testId="corporate-hero-glimpses">
-                See Glimpses
+              <ButtonLink to="/workshops-events" variant="ghost" testId="corporate-hero-workshops">
+                Explore Workshops
               </ButtonLink>
             </div>
           </Reveal>
         </div>
         <div className="hidden lg:flex lg:col-span-5 justify-center">
-          <Reveal delay={0.15}>
+          <Reveal delay={0.15} scale>
             <div className="relative" aria-hidden="true">
               <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-clay-light" />
               <img
-                src="/assets/glimpse-3.webp"
+                src="/assets/glimpse-4.webp"
                 alt=""
                 className="relative w-72 lg:w-80 aspect-[4/5] object-cover rounded-t-[999px] rounded-b-[2rem]"
               />
@@ -117,120 +103,49 @@ const Corporate = () => (
       </div>
     </section>
 
-    <section data-testid="corporate-wellbeing" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro
-          id="corporate-wellbeing-intro"
-          eyebrow="Corporate Wellbeing"
-          title={<>Culture begins with <em className="italic text-sage-dark">care</em></>}
-          copy="Stress, burnout and disconnection rarely announce themselves — they build quietly. Our corporate wellbeing work helps organisations notice early, talk openly and build cultures where people can genuinely thrive."
-        />
-        <div className="mt-16">
-          {AREAS.map(({ title, copy }, i) => (
-            <Reveal key={title} delay={Math.min(i * 0.04, 0.2)}>
-              <div className="group grid md:grid-cols-12 gap-3 md:gap-10 items-baseline border-t border-line/70 py-7 transition-colors duration-300 hover:bg-sage-light/40" data-testid={`area-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                <span className="md:col-span-1 font-serif italic text-base text-clay-dark">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="md:col-span-5 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest transition-transform duration-300 group-hover:translate-x-1">{title}</h3>
-                <p className="md:col-span-6 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
-              </div>
-            </Reveal>
-          ))}
+    <section data-testid="corporate-intro" className="py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-5">
+          <SectionIntro id="corporate-wellbeing-intro" eyebrow="Why It Matters" title={<>Culture begins with <em className="italic text-sage-dark">care</em></>} />
+        </div>
+        <div className="lg:col-span-7 flex items-center">
+          <Reveal delay={0.1}>
+            <p className="text-base lg:text-lg leading-relaxed text-forest-soft">
+              Stress, burnout and disconnection rarely announce themselves — they build quietly.
+              Our corporate well-being work helps organisations notice early, talk openly and
+              build cultures where people can genuinely thrive, not just cope.
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>
 
-    <section data-testid="corporate-offerings" className="bg-sand/60 border-y border-line/50 py-24 lg:py-28">
+    <section data-testid="workshops-offered" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro id="offerings" eyebrow="What We Offer" title={<>Wellbeing <em className="italic text-sage-dark">offerings</em></>} copy="Flexible formats, shaped around your people, schedule and goals." />
+        <SectionIntro
+          id="workshops-offer"
+          eyebrow="What We Offer"
+          title={<>Workshops that work for <em className="italic text-sage-dark">your team.</em></>}
+          copy="Every workplace is different. There are three gentle ways we can begin — and none of them start with a sales pitch."
+        />
         <div className="mt-14 grid md:grid-cols-3 gap-6 lg:gap-8">
-          {OFFERINGS.map(({ Icon, title, copy }, i) => (
-            <Reveal key={title} delay={i * 0.08} className="h-full">
-              <div className="group h-full border border-line/70 bg-offwhite p-10 transition-all duration-300 hover:-translate-y-1 hover:border-sage" data-testid={`offering-card-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                <span className="w-14 h-14 rounded-full bg-sage-light flex items-center justify-center text-forest transition-colors duration-300 group-hover:bg-sage">
-                  <Icon size={26} strokeWidth={1.5} />
+          {WAYS.map(({ num, title, copy, testId, examples }, i) => (
+            <Reveal key={num} delay={i * 0.1} className="h-full">
+              <div className="h-full rounded-[1.75rem] border border-line/70 bg-offwhite p-9 transition-all duration-300 hover:-translate-y-1 hover:border-sage" data-testid={testId}>
+                <span className="inline-flex w-16 h-16 rounded-full bg-sage-light border border-sage/60 items-center justify-center font-serif text-xl text-forest">
+                  {num}
                 </span>
-                <h3 className="mt-7 font-serif text-xl font-semibold text-forest">{title}</h3>
+                <h3 className="mt-7 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest">{title}</h3>
                 <p className="mt-3 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section id="workshops" data-testid="workshops-section" className="py-24 lg:py-32 scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro
-          id="workshops-intro"
-          eyebrow="Workshops"
-          title={<>Learning that <em className="italic text-sage-dark">stays with you</em></>}
-          copy="Our workshops make conversations around mental wellbeing approachable, practical and engaging. No lectures, no jargon — just honest conversations and tools people actually use."
-        />
-        <div className="mt-14 grid md:grid-cols-2 gap-x-14" data-testid="workshop-themes">
-          {THEMES.map(({ title, copy }, i) => (
-            <Reveal key={title} delay={Math.min(i * 0.04, 0.2)}>
-              <div className="group border-t border-line/70 py-7 transition-colors duration-300 hover:bg-clay-light/40" data-testid={`theme-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                <div className="flex items-baseline justify-between gap-6">
-                  <h3 className="font-serif text-xl font-semibold tracking-tight text-forest transition-transform duration-300 group-hover:translate-x-1">{title}</h3>
-                  <ArrowUpRight size={18} strokeWidth={1.5} className="text-sage-dark shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-forest-soft max-w-md">{copy}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section data-testid="tailor-made-section" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
-        <SectionIntro
-          id="tailor-made"
-          eyebrow="Tailor-Made Workshops"
-          title={<>Shaped around <em className="italic text-sage-dark">your organisation</em></>}
-          copy="No two teams are the same, so no two workshops should be either. We can tailor-make every workshop for your organisation — beginning with a conversation, not a catalogue."
-        />
-        <Reveal delay={0.12}>
-          <p className="text-base lg:text-lg leading-relaxed text-forest-soft">
-            Tell us about your people and what they’re carrying. Together, we’ll shape the
-            session around:
-          </p>
-          <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4" data-testid="tailor-made-factors">
-            {TAILOR_FACTORS.map((f) => (
-              <li key={f} className="flex items-center gap-3 text-sm lg:text-base text-forest">
-                <span className="w-1.5 h-1.5 rounded-full bg-sage-dark shrink-0" aria-hidden="true" />
-                {f}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-sm lg:text-base leading-relaxed text-forest-soft">
-            Nothing is off-the-shelf. We design with you, adjust as we go, and keep the
-            experience human from first call to final reflection.
-          </p>
-          <div className="mt-9">
-            <ButtonLink to="/contact" testId="tailor-made-cta" withArrow>
-              Create a Workshop With Us
-            </ButtonLink>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-
-    <section data-testid="how-we-work" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro
-          id="how-we-work-intro"
-          eyebrow="How We Work"
-          title={<>A gentle, thoughtful <em className="italic text-sage-dark">process</em></>}
-          copy="Four quiet stages — each one unhurried, each one shaped around you."
-        />
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {PROCESS.map(({ num, title, copy }, i) => (
-            <Reveal key={num} delay={i * 0.12}>
-              <div className="border-t-2 border-sage pt-7" data-testid={`process-step-${num}`}>
-                <span className="font-serif italic text-base text-clay-dark">{num}</span>
-                <h3 className="mt-3 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-forest-soft">{copy}</p>
+                {examples && (
+                  <div className="mt-6 flex flex-wrap gap-2" data-testid="existing-workshop-examples">
+                    {examples.map((e) => (
+                      <span key={e} className="rounded-full border border-line bg-sand/60 px-4 py-1.5 text-xs lg:text-sm text-forest-soft">
+                        {e}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </Reveal>
           ))}
@@ -257,7 +172,7 @@ const Corporate = () => (
       </div>
     </section>
 
-    <section data-testid="benefits-section" className="py-24 lg:py-32">
+    <section data-testid="benefits-section" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionIntro id="benefits" eyebrow="Benefits" title={<>What people <em className="italic text-sage-dark">take back</em></>} />
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
@@ -273,7 +188,41 @@ const Corporate = () => (
       </div>
     </section>
 
-    <section id="glimpses" data-testid="glimpses-section" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32 scroll-mt-24">
+    <section data-testid="how-we-partner" className="py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <SectionIntro id="from-brief" eyebrow="How We Partner" title={<>From brief <em className="italic text-sage-dark">to delivery</em></>} />
+        <div className="mt-16 grid sm:grid-cols-3 gap-12 lg:gap-10">
+          {PROCESS.map(({ num, title, copy }, i) => (
+            <Reveal key={num} delay={i * 0.12}>
+              <div data-testid={`partner-step-${num}`}>
+                <span className="inline-flex w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-forest items-center justify-center font-serif text-3xl lg:text-4xl text-offwhite">
+                  {num}
+                </span>
+                <h3 className="mt-7 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest">{title}</h3>
+                <p className="mt-3 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section data-testid="teams-section" className="bg-sand/60 border-y border-line/50 py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <SectionIntro id="teams" eyebrow="Teams That Work With Us" title={<>In good <em className="italic text-sage-dark">company</em></>} align="center" />
+        <div className="mt-12 flex flex-wrap justify-center items-center gap-x-16 gap-y-8">
+          {TEAMS.map((t, i) => (
+            <Reveal key={t} delay={i * 0.1}>
+              <span className="font-serif text-2xl sm:text-3xl lg:text-4xl tracking-tight text-forest/80" data-testid={`team-${t.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
+                {t}
+              </span>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="glimpses" data-testid="glimpses-section" className="py-24 lg:py-32 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionIntro
           id="glimpses"
@@ -283,7 +232,7 @@ const Corporate = () => (
         />
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 auto-rows-[240px] gap-5">
           {GLIMPSES.map(({ src, alt, caption, cls }, i) => (
-            <Reveal key={src} delay={i * 0.06} className={cls}>
+            <Reveal key={src} delay={i * 0.06} scale className={cls}>
               <figure className="group relative h-full w-full overflow-hidden rounded-[1.5rem]" data-testid={`glimpse-${i + 1}`}>
                 <img
                   src={src}
@@ -301,24 +250,12 @@ const Corporate = () => (
       </div>
     </section>
 
-    <section data-testid="corporate-cta" className="bg-forest">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24 text-center">
-        <Reveal>
-          <h2 className="font-serif text-3xl sm:text-4xl tracking-tight text-offwhite">
-            Let’s design something for <em className="italic text-clay">your people.</em>
-          </h2>
-          <p className="mt-4 text-base lg:text-lg text-offwhite/75 max-w-xl mx-auto">
-            Tell us about your school, team or workplace — we’ll shape a session or programme
-            that fits.
-          </p>
-          <div className="mt-9">
-            <ButtonLink to="/contact" variant="light" testId="corporate-cta-contact" withArrow>
-              Start a Conversation
-            </ButtonLink>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <FinalCta
+      testId="corporate-cta"
+      title={<>Let’s design something for <em className="italic text-sage">your people.</em></>}
+      copy="Tell us about your school, team or workplace — we’ll shape a session or programme that fits."
+      primary={{ to: "/contact", label: "Start a Conversation", testId: "corporate-cta-contact" }}
+    />
   </>
 );
 

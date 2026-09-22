@@ -25,8 +25,12 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 
 - 2026-09-15 (v3 polish): Body/nav/buttons switched to DM Sans (Playfair Display kept for headings/editorial). Staggered hero entrance (heading → copy → CTA → image fade/scale). Nav links gained elegant underline hover. Corporate page extended: hero CTA now "Enquire About a Workshop", new Tailor-Made Workshops section (7 adaptation factors + "Create a Workshop With Us" CTA), new How We Work process (01 Understand / 02 Design / 03 Deliver / 04 Reflect, staggered). Verified desktop/tablet/mobile, no horizontal overflow, no console errors.
 
-## Backlog / Next Tasks- P1: Real contact details (email, phone, social URLs) — currently placeholders per client request.
-- P1: Email notification on contact form submission (e.g. Resend).
+- 2026-09-22 (v4 restructure to "Piece of Mind"): Brand renamed everywhere (logo, nav, pages, metadata, footer). New page architecture: Home, Individual Therapy (/individual-therapy), Corporate Well-being (/corporate-wellbeing), Workshops & Events (/workshops-events), About Us (/about), FAQ, Contact; legacy /support and /corporate-workshops redirect. Semi-circular logo mark treatment. Home hero: "Every piece of you matters." full-screen with single "Book a therapy session" CTA. Therapy page: hero, "a space to feel heard" statement, concerns, 3-step circles, 4 approach principles. About: reference copy + Anshita Gaur section (square photo, real bio from brand site). Corporate: 3 ways of working (tailor-made / call-or-audit / existing workshops with 6 examples), From brief to delivery (large circular numbers), Teams (Buildup Global, Fine Equipments), photo gallery. Workshops & Events: customise-for-circles, themes, exactly two photos. No testimonials anywhere; no light-pink text; no stats/credentials sections. Contact form now sends email notification via Emergent-managed Resend (EMERGENT_EMAIL_KEY, EMAIL_FROM_NAME="Piece of Mind", OWNER_EMAIL env; currently delivered@resend.dev test sink — needs real owner email for production). Verified: email send returns 202, all pages desktop + mobile, no overflow, no console errors.
+
+## Backlog / Next Tasks
+- P0: Set OWNER_EMAIL (backend/.env) to the owner's real inbox — currently test sink delivered@resend.dev.
+- P1: Real contact details (email, phone, social URLs) — placeholders per client request.
+- P1: Dedicated portrait photo of Anshita Gaur (currently using supplied facilitation photo).
 - P2: Admin view to read contact enquiries.
 - P2: Blog / resources section.
 

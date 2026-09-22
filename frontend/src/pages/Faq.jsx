@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const FAQS = [
   {
-    q: "What kind of support does A Piece of Mind offer?",
+    q: "What kind of support does Piece of Mind offer?",
     a: "We offer one-to-one individual support sessions, interactive wellbeing workshops, and corporate wellbeing programmes for schools, teams and workplaces.",
   },
   {
@@ -45,7 +45,7 @@ const FAQS = [
     a: "Reach out through the contact form and we’ll respond to understand what you’re looking for, then plan the next steps together — gently and without pressure.",
   },
   {
-    q: "How can I contact A Piece of Mind?",
+    q: "How can I contact Piece of Mind?",
     a: "The easiest way is the contact form on this website. Share a few details about what you need and we’ll get back to you.",
   },
 ];
@@ -53,8 +53,8 @@ const FAQS = [
 const Faq = () => (
   <>
     <Seo
-      title="FAQ — A Piece of Mind"
-      description="Answers to common questions about support, workshops, corporate sessions, booking and contacting A Piece of Mind."
+      title="FAQ — Piece of Mind"
+      description="Answers to common questions about support, workshops, corporate sessions, booking and contacting Piece of Mind."
     />
 
     <section data-testid="faq-hero" className="border-b border-line/50 bg-sand/60">

@@ -5,15 +5,14 @@ import Logo from "@/components/Logo";
 
 export const NAV_LINKS = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Support", to: "/support" },
-  { label: "Corporate & Workshops", to: "/corporate-workshops" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Contact", to: "/contact" },
+  { label: "Individual Therapy", to: "/individual-therapy" },
+  { label: "Corporate Well-being", to: "/corporate-wellbeing" },
+  { label: "Workshops & Events", to: "/workshops-events" },
+  { label: "About Us", to: "/about" },
 ];
 
 const linkClass = ({ isActive }) =>
-  `relative text-sm tracking-wide transition-colors duration-300 hover:text-forest after:absolute after:left-0 after:-bottom-1 after:h-px after:bg-forest after:transition-all after:duration-300 ${
+  `relative text-sm tracking-wide whitespace-nowrap transition-colors duration-300 hover:text-forest after:absolute after:left-0 after:-bottom-1 after:h-px after:bg-forest after:transition-all after:duration-300 ${
     isActive ? "text-forest font-semibold after:w-full" : "text-forest-soft after:w-0 hover:after:w-full"
   }`;
 
@@ -32,7 +31,7 @@ const Header = () => {
     <header
       data-testid="site-header"
       className={`sticky top-0 z-50 bg-offwhite/90 backdrop-blur-md transition-all duration-500 ${
-        scrolled ? "border-b border-line shadow-[0_4px_24px_rgb(44,62,62,0.05)]" : "border-b border-transparent"
+        scrolled ? "border-b border-line shadow-[0_4px_24px_rgb(44,62,62,0.05)]" : "border-b border-line/60"
       }`}
     >
       <div
@@ -41,8 +40,8 @@ const Header = () => {
         }`}
       >
         <Logo />
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-          {NAV_LINKS.slice(0, 5).map((l) => (
+        <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+          {NAV_LINKS.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
@@ -75,7 +74,7 @@ const Header = () => {
       <div
         data-testid="mobile-menu"
         className={`lg:hidden overflow-hidden bg-offwhite transition-all duration-500 ease-out ${
-          open ? "max-h-96 border-t border-line/70" : "max-h-0"
+          open ? "max-h-[28rem] border-t border-line/70" : "max-h-0"
         }`}
       >
         <nav className="px-6 py-6 flex flex-col gap-5" aria-label="Mobile">
@@ -91,6 +90,22 @@ const Header = () => {
               {l.label}
             </NavLink>
           ))}
+          <NavLink
+            to="/faq"
+            onClick={() => setOpen(false)}
+            className={linkClass}
+            data-testid="mobile-nav-link-faq"
+          >
+            FAQ
+          </NavLink>
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            data-testid="mobile-nav-contact-cta"
+            className="mt-2 inline-flex w-fit rounded-full bg-forest px-6 py-2.5 text-sm font-semibold text-offwhite"
+          >
+            Get in Touch
+          </Link>
         </nav>
       </div>
     </header>
