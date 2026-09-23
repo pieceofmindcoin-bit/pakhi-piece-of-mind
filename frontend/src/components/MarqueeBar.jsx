@@ -1,19 +1,19 @@
 import Marquee from "react-fast-marquee";
 
 const PHRASES = [
-  "mental wellbeing",
-  "emotional awareness",
-  "stress",
-  "resilience",
-  "self-understanding",
-  "rest",
-  "balance",
-  "human connection",
-  "safe spaces",
+  "Life transitions",
+  "Neurodiversity",
+  "Feeling not like yourself",
+  "Low mood",
+  "Stress",
+  "Anxiety",
+  "Grief",
+  "Burnout",
+  "Shame & guilt",
 ];
 
 const MarqueeBar = () => (
-  <section aria-label="Wellbeing reminders" data-testid="marquee-bar" className="bg-sage py-5 overflow-hidden">
+  <section aria-label="Topics we support" data-testid="marquee-bar" className="bg-sage py-5 overflow-hidden">
     <Marquee speed={35} gradient={false} pauseOnHover>
       {PHRASES.map((p) => (
         <span key={p} className="flex items-center text-forest font-serif italic text-base sm:text-lg tracking-wide">

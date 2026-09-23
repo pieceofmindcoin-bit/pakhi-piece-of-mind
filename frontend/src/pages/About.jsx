@@ -13,14 +13,13 @@ const VALUES = [
 const About = () => (
   <>
     <Seo
-      title="About Us — Piece of Mind"
+      title="About Us: Piece of Mind"
       description="Piece of Mind is a non-judgmental mental health practice rooted in compassion and curiosity. Meet Anshita Gaur and the values behind the practice."
     />
 
     <section data-testid="about-hero" className="bg-sand/60 border-b border-line/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 text-center">
         <Reveal className="max-w-2xl mx-auto">
-          <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">About us</p>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="about-headline">
             A space to <em className="italic text-sage-dark">be human.</em>
           </h1>
@@ -35,23 +34,23 @@ const About = () => (
     <section data-testid="about-who" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         <div>
-          <SectionIntro id="who-we-are" eyebrow="Who we are" title={<>Therapy that meets you <em className="italic text-sage-dark">where you are.</em></>} />
+          <SectionIntro id="who-we-are" title={<>Therapy that meets you <em className="italic text-sage-dark">where you are.</em></>} />
           <Reveal delay={0.1}>
             <div className="mt-6 space-y-5 text-base lg:text-lg leading-relaxed text-forest-soft">
               <p>
-                Piece of Mind was created for the moments when things feel too much — or when you
+                Piece of Mind was created for the moments when things feel too much, or when you
                 simply want to understand yourself better. We offer individual therapy, corporate
                 well-being workshops, and community events designed to make mental health feel a
                 little less lonely.
               </p>
               <p>
                 We work with individuals online from anywhere in the world, and in-person in Pune.
-                Our work is grounded in warmth rather than clinical distance — we believe the
+                Our work is grounded in warmth rather than clinical distance. We believe the
                 therapeutic relationship itself is a form of healing.
               </p>
               <p>
                 Whether you're navigating grief, burnout, life transitions, or just a quiet feeling
-                that something's off — there's a place for you here. You don't have to have it all
+                that something's off, there's a place for you here. You don't have to have it all
                 figured out before you begin.
               </p>
             </div>
@@ -74,12 +73,12 @@ const About = () => (
 
     <section data-testid="about-values" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro id="values" eyebrow="Our values" title={<>What we <em className="italic text-sage-dark">stand for.</em></>} />
+        <SectionIntro id="values" title={<>What we <em className="italic text-sage-dark">stand for.</em></>} />
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {VALUES.map(({ title, copy }, i) => (
             <Reveal key={title} delay={i * 0.08} className="h-full">
-              <div className="h-full rounded-[1.75rem] border border-line/70 bg-offwhite p-8 transition-all duration-300 hover:-translate-y-1 hover:border-sage" data-testid={`value-card-${title.toLowerCase()}`}>
-                <span className="block w-3 h-3 rounded-full bg-sage mb-6" aria-hidden="true" />
+              <div className="h-full rounded-[1.75rem] border border-sage/50 bg-sage-light/70 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-sage" data-testid={`value-card-${title.toLowerCase()}`}>
+                <span className="block w-3 h-3 rounded-full bg-sage-dark mb-6" aria-hidden="true" />
                 <h3 className="font-serif text-xl font-semibold text-forest">{title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-forest-soft">{copy}</p>
               </div>
@@ -95,7 +94,7 @@ const About = () => (
           <Reveal scale>
             <img
               src="/assets/glimpse-2.webp"
-              alt="Anshita Gaur facilitating a wellbeing session"
+              alt="Anshita Gaur, founder of Piece of Mind, facilitating a session"
               loading="lazy"
               className="w-full max-w-md aspect-square object-cover object-[center_20%] rounded-[2rem]"
               data-testid="anshita-photo"
@@ -104,29 +103,29 @@ const About = () => (
         </div>
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">Meet your therapist</p>
+            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">Meet your founder</p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-forest" data-testid="anshita-heading">
               Hi, I’m <em className="italic text-sage-dark">Anshita Gaur.</em>
             </h2>
             <blockquote className="mt-8 font-serif italic text-xl lg:text-2xl leading-relaxed text-forest border-l-2 border-sage pl-6" data-testid="anshita-quote">
-              “Showing up as you are is the most courageous thing you can do — and you don’t have
+              “Showing up as you are is the most courageous thing you can do, and you don’t have
               to do it alone.”
             </blockquote>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-forest-soft">
               <p>
-                I’m an integrative psychotherapist with a person-centered approach — which means I
+                I’m an integrative psychotherapist with a person-centered approach, which means I
                 put you, your experiences, and your pace at the heart of everything we do. I’ve
                 been working with individuals, groups, and organisations for over five years.
               </p>
               <p>
                 My approach draws from multiple modalities and is firmly trauma-informed,
                 queer-affirmative, and grounded in respect for every identity, orientation, and way
-                of being. I believe that no two people — or two sessions — are alike, and that’s
+                of being. I believe that no two people, or two sessions, are alike, and that’s
                 exactly the point.
               </p>
               <p>
                 I started Piece of Mind because I wanted to create the kind of space I once went
-                looking for: one where you could be complicated, uncertain, or just tired — and
+                looking for: one where you could be complicated, uncertain, or just tired, and
                 still feel completely welcome. That’s what I try to offer in every session.
               </p>
               <p>
@@ -141,7 +140,7 @@ const About = () => (
     <FinalCta
       testId="about-cta"
       title={<>Ready when <em className="italic text-sage">you are.</em></>}
-      copy="Book a free 15-minute consultation. No pressure to continue."
+      copy="Book a 15-minute consultation. No pressure to continue."
       primary={{ to: "/contact", label: "Book a Therapy Session", testId: "about-cta-book" }}
     />
   </>

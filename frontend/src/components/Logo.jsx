@@ -20,7 +20,7 @@ const Logo = ({ light = false }) => (
     to="/"
     data-testid="logo-link"
     className="flex items-center gap-3 group"
-    aria-label="Piece of Mind — home"
+    aria-label="Piece of Mind home"
   >
     <span className="transition-transform duration-500 group-hover:-translate-y-0.5">
       <LogoMark width={52} />

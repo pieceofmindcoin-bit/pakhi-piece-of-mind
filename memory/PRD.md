@@ -33,9 +33,11 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 
 - 2026-09-22 (v7): Added "What people have to say" testimonial marquee to the HOMEPAGE ONLY (between approach section and final CTA) — seamless continuous right-to-left react-fast-marquee loop, pause on hover, alternating sand/sage-light rounded cards, real quotes from the brand's reference site (RG, SR, MK, PS). Verified desktop + mobile, no horizontal overflow.
 
+- 2026-09-23 (v8 consolidated client pass): Removed ALL em dashes and all decorative small-caps eyebrow labels site-wide; removed "free" from consultation CTAs. Footer logo mark removed (wordmark text only; logo now only in header, single instance). Beige sections' inner cards switched to sage-light. Home hero is now full-screen forest green with italic ONLY on "piece", exact subheading, uppercase BOOK A THERAPY SESSION CTA. "Three ways to find support" -> "Services we offer". Marquee topics replaced with the 9 exact topics. "Wellbeing made practical" section removed from Home. "Hi, I'm Anshita Gaur" beige section added to Home above final CTA. Testimonials section now forest green. Therapy hero rebalanced with arch photo; concerns section rebuilt as floating typography composition (mobile fallback flex-wrap). Corporate: "Explore Workshops" button removed, hero CTA now "Get in touch", "Made for your people" and "In good company" sections removed, call/audit folded into Tailor-Made card (2 cards), benefits reworked as "What you'll take away" (Self reflection / Connections / Practical tools, staggered big circles). Workshops: "Glimpses of our workshops" rename + NEW "Upcoming workshops & events" section powered by a self-service admin CMS at /admin (JWT auth, add/edit/delete events; clean empty state). Journal pages removed; /journal redirects home. Fixed Babel parse quirk (multi-line array in non-self-closing JSX) and Reveal data-testid forwarding. Verified at 390/768/1024/1280/1440: single logo, no overflow, marquee contained, admin flow works end-to-end via UI (add -> public list -> delete).
+
 ## Backlog / Next Tasks
-- P1: Dedicated portrait photo of Anshita Gaur (user will send it; then swap into About Us anshita-photo).
-- P2: Admin UI to publish new Journal posts (currently seeded in backend code).
+- P1: Dedicated portrait photo of Anshita Gaur (user will send it; then swap into About Us + Home anshita sections).
+- P2: Event image upload (admin form has image URL field; object storage not wired).
 - P2: Admin view to read contact enquiries.
 
 ## Test Credentials

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Reveal = ({ children, delay = 0, className = "", as = "div", scale = false }) => {
+const Reveal = ({ children, delay = 0, className = "", as = "div", scale = false, ...rest }) => {
   const MotionTag = motion[as] || motion.div;
   return (
     <MotionTag
@@ -9,6 +9,7 @@ const Reveal = ({ children, delay = 0, className = "", as = "div", scale = false
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
       className={className}
+      {...rest}
     >
       {children}
     </MotionTag>

@@ -17,7 +17,7 @@ const SUPPORT_WAYS = [
     Icon: HeartHandshake,
     num: "01",
     title: "Individual Therapy",
-    copy: "One-to-one therapy in a safe, confidential space — to talk, reflect and understand yourself better.",
+    copy: "One-to-one therapy in a safe, confidential space to talk, reflect and understand yourself better.",
     to: "/individual-therapy",
     cta: "Explore individual therapy",
     testId: "support-card-therapy",
@@ -40,12 +40,6 @@ const SUPPORT_WAYS = [
     cta: "Discover workshops",
     testId: "support-card-workshops",
   },
-];
-
-const PRINCIPLES = [
-  { title: "Safe spaces first", copy: "Everything begins with psychological safety and zero judgement." },
-  { title: "Awareness before advice", copy: "We help you understand yourself, not just cope with symptoms." },
-  { title: "Practical and gentle", copy: "Simple tools you can actually use in everyday life." },
 ];
 
 const HeroArt = () => {
@@ -94,53 +88,43 @@ const HeroArt = () => {
 const Home = () => (
   <>
     <Seo
-      title="Piece of Mind — Therapy, Wellbeing & Workshops"
-      description="Piece of Mind is a non-judgmental mental health practice — individual therapy online worldwide and in Pune, corporate well-being, workshops and events."
+      title="Piece of Mind: Therapy, Wellbeing & Workshops"
+      description="Piece of Mind is a non-judgmental mental health practice: individual therapy online worldwide and in Pune, corporate well-being, workshops and events."
     />
 
-    <section data-testid="hero-section" className="relative overflow-hidden">
+    <section data-testid="hero-section" className="relative overflow-hidden bg-forest">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 min-h-[calc(100svh-5rem)] py-16 lg:py-20 grid lg:grid-cols-12 gap-14 lg:gap-10 items-center">
         <div className="lg:col-span-7">
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
-            className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6"
-            data-testid="hero-eyebrow"
-          >
-            Piece of Mind · Mental Wellbeing
-          </motion.p>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="hero-headline">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-offwhite" data-testid="hero-headline">
             <MaskedLines
-              delay={0.25}
+              delay={0.2}
               lines={[
-                "Every piece of you",
-                <em key="matters" className="italic text-sage-dark">matters.</em>,
+                <span key="l1">Every <em className="italic text-sage">piece</em> of you</span>,
+                "matters.",
               ]}
             />
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.8, ease: EASE }}
-            className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl"
+            transition={{ duration: 0.9, delay: 0.75, ease: EASE }}
+            className="mt-6 text-base lg:text-lg leading-relaxed text-offwhite/80 max-w-xl"
             data-testid="hero-copy"
           >
-            A warm, non-judgmental practice for therapy, wellbeing and learning — online
-            worldwide and in-person in Pune.
+            Non-judgmental, compassionate mental health support for individuals, groups, and organizations.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.95, ease: EASE }}
+            transition={{ duration: 0.9, delay: 0.9, ease: EASE }}
             className="mt-10"
           >
             <Link
               to="/contact"
               data-testid="hero-cta-book"
-              className="group inline-flex items-center gap-2 rounded-full bg-forest px-8 py-3.5 text-sm font-semibold tracking-wide text-offwhite transition-all duration-300 hover:bg-forest-soft hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-full bg-offwhite px-8 py-3.5 text-sm font-semibold tracking-[0.06em] text-forest transition-all duration-300 hover:bg-sand hover:-translate-y-0.5"
             >
-              Book a therapy session
+              BOOK A THERAPY SESSION
               <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </motion.div>
@@ -152,7 +136,7 @@ const Home = () => (
     <section data-testid="intro-section" className="bg-sand/60 border-y border-line/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-28 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <SectionIntro id="intro" eyebrow="Welcome" title={<>Support that feels <em className="italic text-sage-dark">human</em></>} />
+          <SectionIntro id="intro" title={<>Support that feels <em className="italic text-sage-dark">human</em></>} />
         </div>
         <div className="lg:col-span-7 flex flex-col justify-center">
           <Reveal delay={0.1}>
@@ -162,7 +146,7 @@ const Home = () => (
             </p>
             <p className="mt-5 text-base lg:text-lg leading-relaxed text-forest-soft">
               Whether you are looking for someone to talk to, a workshop to learn from, or a
-              wellbeing programme for your organisation — you are welcome here, exactly as you are.
+              wellbeing programme for your organisation, you are welcome here, exactly as you are.
             </p>
           </Reveal>
         </div>
@@ -173,8 +157,7 @@ const Home = () => (
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionIntro
           id="support-ways"
-          eyebrow="Where to begin"
-          title={<>Three ways to find <em className="italic text-sage-dark">support</em></>}
+          title={<>Services we <em className="italic text-sage-dark">offer</em></>}
           copy="There is no single right way to care for your mind. Choose the path that fits where you are today."
         />
         <div className="mt-14 grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -206,45 +189,47 @@ const Home = () => (
 
     <MarqueeBar />
 
-    <section data-testid="approach-section" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
-        <div className="order-2 lg:order-1">
-          <SectionIntro
-            id="approach"
-            eyebrow="Our Approach"
-            title={<>Wellbeing, made <em className="italic text-sage-dark">practical</em></>}
-            copy="We believe mental wellbeing is not a luxury or a last resort — it is a life skill. Our work blends emotional awareness, gentle support and practical learning, always inside spaces that feel safe."
-          />
-          <div className="mt-12">
-            {PRINCIPLES.map(({ title, copy }, i) => (
-              <Reveal key={title} delay={i * 0.12} className="flex gap-6 lg:gap-8 items-baseline border-t border-line/70 py-7">
-                <span className="font-serif text-3xl lg:text-4xl leading-none text-sage-dark/80 shrink-0 w-14" aria-hidden="true">
-                  {`0${i + 1}`}
-                </span>
-                <div>
-                  <h3 className="font-serif text-xl lg:text-2xl font-semibold text-forest">{title}</h3>
-                  <p className="mt-2 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-        <Reveal delay={0.15} scale className="order-1 lg:order-2">
-          <div className="relative max-w-md mx-auto lg:ml-auto">
-            <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sage-light" aria-hidden="true" />
+    <Testimonials />
+
+    <section data-testid="home-anshita" className="bg-sand/60 border-b border-line/50 py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+        <div className="lg:col-span-5">
+          <Reveal scale>
             <img
               src="/assets/glimpse-2.webp"
-              alt="A facilitator leading an interactive wellbeing workshop with participants"
+              alt="Anshita Gaur, founder of Piece of Mind, facilitating a session"
               loading="lazy"
-              className="relative w-full aspect-[4/5] object-cover rounded-t-[999px] rounded-b-[2rem]"
-              data-testid="approach-image"
+              className="w-full max-w-md aspect-square object-cover object-[center_20%] rounded-[2rem]"
+              data-testid="home-anshita-photo"
             />
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
+        <div className="lg:col-span-7">
+          <Reveal>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-forest" data-testid="home-anshita-heading">
+              Hi, I’m <em className="italic text-sage-dark">Anshita Gaur.</em>
+            </h2>
+            <blockquote className="mt-8 font-serif italic text-xl lg:text-2xl leading-relaxed text-forest border-l-2 border-sage pl-6">
+              “Showing up as you are is the most courageous thing you can do, and you don’t have
+              to do it alone.”
+            </blockquote>
+            <p className="mt-8 text-base lg:text-lg leading-relaxed text-forest-soft">
+              A trauma-informed, queer-affirmative psychotherapist working with individuals,
+              groups, and organisations to make mental health feel a little less lonely.
+              Integrative, person-centered, and committed to meeting you where you are.
+            </p>
+            <Link
+              to="/about"
+              data-testid="home-anshita-link"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-forest"
+            >
+              Read my story
+              <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1.5" />
+            </Link>
+          </Reveal>
+        </div>
       </div>
     </section>
-
-    <Testimonials />
 
     <FinalCta
       testId="home-cta-section"

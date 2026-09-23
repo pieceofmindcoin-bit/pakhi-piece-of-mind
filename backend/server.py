@@ -1,23 +1,26 @@
-from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
+from pathlib import Path
+import os
+
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
+
+from fastapi import FastAPI, APIRouter, HTTPException, Request
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
-import os
 import re
 import ipaddress
 import logging
-from pathlib import Path
 from pydantic import BaseModel, Field
 from typing import Optional
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from html import escape
 from html.parser import HTMLParser
 from urllib.parse import urlparse
 import httpx
-
-ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
+import bcrypt
+import jwt
 
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
@@ -33,6 +36,40 @@ EMAIL_KEY = os.environ["EMERGENT_EMAIL_KEY"]
 EMAIL_FROM_NAME = os.environ["EMAIL_FROM_NAME"]
 OWNER_EMAIL = os.environ.get("OWNER_EMAIL", "delivered@resend.dev")
 
+JWT_ALGORITHM = "HS256"
+ADMIN_EMAIL = os.environ["ADMIN_EMAIL"].lower()
+
+
+def hash_password(password: str) -> str:
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+
+def verify_password(plain: str, hashed: str) -> bool:
+    return bcrypt.checkpw(plain.encode("utf-8"), hashed.encode("utf-8"))
+
+
+def create_access_token(email: str) -> str:
+    payload = {"sub": email, "exp": datetime.now(timezone.utc) + timedelta(hours=12), "type": "access"}
+    return jwt.encode(payload, os.environ["JWT_SECRET"], algorithm=JWT_ALGORITHM)
+
+
+async def get_current_admin(request: Request) -> str:
+    auth = request.headers.get("Authorization", "")
+    if not auth.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    try:
+        payload = jwt.decode(auth[7:], os.environ["JWT_SECRET"], algorithms=[JWT_ALGORITHM])
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    if payload.get("sub") != ADMIN_EMAIL:
+        raise HTTPException(status_code=403, detail="Not authorized")
+    return payload["sub"]
+
+
+class LoginIn(BaseModel):
+    email: str
+    password: str
+
 
 class ContactMessageCreate(BaseModel):
     name: str = Field(min_length=1, max_length=200)
@@ -40,6 +77,16 @@ class ContactMessageCreate(BaseModel):
     phone: Optional[str] = ""
     enquiry_type: str = Field(min_length=1, max_length=100)
     message: str = Field(min_length=1, max_length=5000)
+
+
+class EventIn(BaseModel):
+    title: str = Field(min_length=1, max_length=200)
+    date: str = Field(min_length=1, max_length=60)
+    time: str = ""
+    location: str = ""
+    description: str = ""
+    link: str = ""
+    image: str = ""
 
 
 _SHORTENERS = ("bit.ly", "tinyurl.com", "t.co", "is.gd", "cutt.ly", "goo.gl", "rebrand.ly")
@@ -129,9 +176,41 @@ async def send_email(*, to: str, subject: str, html: str, reply_to: str | None =
     return resp.json().get("id")
 
 
+@app.on_event("startup")
+async def seed_admin():
+    await db.users.create_index("email", unique=True)
+    existing = await db.users.find_one({"email": ADMIN_EMAIL})
+    password = os.environ["ADMIN_PASSWORD"]
+    if existing is None:
+        await db.users.insert_one({
+            "email": ADMIN_EMAIL,
+            "password_hash": hash_password(password),
+            "name": "Anshita",
+            "role": "admin",
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        })
+    elif not verify_password(password, existing["password_hash"]):
+        await db.users.update_one({"email": ADMIN_EMAIL}, {"$set": {"password_hash": hash_password(password)}})
+
+
 @api_router.get("/")
 async def root():
     return {"message": "Piece of Mind API"}
+
+
+@api_router.post("/auth/login")
+async def login(input: LoginIn):
+    email = input.email.lower().strip()
+    user = await db.users.find_one({"email": email})
+    if not user or not verify_password(input.password, user["password_hash"]):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+    return {"token": create_access_token(email), "email": email, "name": user.get("name", "Admin")}
+
+
+@api_router.get("/auth/me")
+async def me(request: Request):
+    email = await get_current_admin(request)
+    return {"email": email, "role": "admin"}
 
 
 @api_router.post("/contact")
@@ -141,14 +220,14 @@ async def create_contact_message(input: ContactMessageCreate):
     doc["created_at"] = datetime.now(timezone.utc).isoformat()
     await db.contact_messages.insert_one(doc)
 
-    subject = f"New enquiry: {doc['enquiry_type']} — {doc['name']}"
+    subject = f"New enquiry: {doc['enquiry_type']}: {doc['name']}"
     rows = "".join(
         f'<tr><td style="padding:6px 16px 6px 0;color:#5C6660;font-size:13px;vertical-align:top">{label}</td>'
         f'<td style="padding:6px 0;font-size:14px;color:#2C3E3E">{value}</td></tr>'
         for label, value in [
             ("Name", escape(doc["name"])),
             ("Email", escape(doc["email"])),
-            ("Phone", escape(doc.get("phone") or "—")),
+            ("Phone", escape(doc.get("phone") or "-")),
             ("Enquiry type", escape(doc["enquiry_type"])),
             ("Message", escape(doc["message"]).replace("\n", "<br>")),
         ]
@@ -169,66 +248,38 @@ async def create_contact_message(input: ContactMessageCreate):
     return {"status": "received", "id": doc["id"]}
 
 
-JOURNAL_POSTS = [
-    {
-        "slug": "you-dont-have-to-have-it-all-figured-out",
-        "title": "You don't have to have it all figured out",
-        "excerpt": "On beginning therapy before you have the words — and why uncertainty is a perfectly good place to start.",
-        "date": "2026-09-01",
-        "reading_time": "3 min read",
-        "content": [
-            "Many people wait to reach out until they can explain exactly what's wrong. As if therapy were an exam you need to prepare for, rather than a room you can simply walk into.",
-            "But you don't need the right words, a clear reason, or a crisis. A quiet feeling that something's off is reason enough. So is curiosity. So is tiredness that sleep doesn't fix.",
-            "Therapy isn't about arriving with answers. It's about having a space where the questions are allowed to be messy, half-formed, or entirely absent — and where someone is trained to sit with you in that.",
-            "If you've been waiting until you can articulate it perfectly, consider this your permission to begin before then.",
-        ],
-    },
-    {
-        "slug": "rest-is-not-a-reward",
-        "title": "Rest is not a reward",
-        "excerpt": "We treat rest like something to be earned. A gentler way to think about slowing down.",
-        "date": "2026-08-18",
-        "reading_time": "3 min read",
-        "content": [
-            "Somewhere along the way, rest became a finish line — something you get to do only after everything else is done. The trouble is, everything else is never done.",
-            "Rest isn't the opposite of productivity. It's part of how a nervous system stays well. When we only allow ourselves to stop once we're depleted, we're not resting — we're recovering. There's a difference.",
-            "Try noticing the moment your body asks for a pause: the heaviness, the fog, the short temper. That signal deserves the same respect as a deadline.",
-            "You don't have to earn your rest. You only have to allow it.",
-        ],
-    },
-    {
-        "slug": "naming-what-you-feel",
-        "title": "Naming what you feel",
-        "excerpt": "A small practice with outsized effects: putting feelings into words.",
-        "date": "2026-08-04",
-        "reading_time": "2 min read",
-        "content": [
-            "'I feel bad' is honest, but it's blurry. Is it anxious? Disappointed? Lonely? Embarrassed? Each of those asks for something different.",
-            "Psychologists call it affect labelling — the simple act of putting a feeling into words. Naming an emotion doesn't make it disappear, but it does soften its grip. The feeling becomes something you can look at, rather than something you're inside of.",
-            "A gentle practice: once a day, pause and finish this sentence as precisely as you can — 'Right now, I feel…'. No judgement, no fixing. Just naming.",
-            "It's a small habit. But self-understanding is built from exactly these small habits.",
-        ],
-    },
-]
+@api_router.get("/events")
+async def list_events():
+    return await db.events.find({}, {"_id": 0}).sort("date", 1).to_list(100)
 
 
-@app.on_event("startup")
-async def seed_journal():
-    if await db.journal_posts.count_documents({}) == 0:
-        await db.journal_posts.insert_many([{**p, "id": str(uuid.uuid4())} for p in JOURNAL_POSTS])
+@api_router.post("/events", status_code=201)
+async def create_event(input: EventIn, request: Request):
+    await get_current_admin(request)
+    doc = input.model_dump()
+    doc["id"] = str(uuid.uuid4())
+    doc["created_at"] = datetime.now(timezone.utc).isoformat()
+    await db.events.insert_one(doc)
+    doc.pop("_id", None)
+    return doc
 
 
-@api_router.get("/journal")
-async def list_journal_posts():
-    return await db.journal_posts.find({}, {"_id": 0, "content": 0}).sort("date", -1).to_list(100)
+@api_router.put("/events/{event_id}")
+async def update_event(event_id: str, input: EventIn, request: Request):
+    await get_current_admin(request)
+    result = await db.events.update_one({"id": event_id}, {"$set": input.model_dump()})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Event not found")
+    return await db.events.find_one({"id": event_id}, {"_id": 0})
 
 
-@api_router.get("/journal/{slug}")
-async def get_journal_post(slug: str):
-    post = await db.journal_posts.find_one({"slug": slug}, {"_id": 0})
-    if not post:
-        raise HTTPException(status_code=404, detail="Post not found")
-    return post
+@api_router.delete("/events/{event_id}")
+async def delete_event(event_id: str, request: Request):
+    await get_current_admin(request)
+    result = await db.events.delete_one({"id": event_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Event not found")
+    return {"status": "deleted"}
 
 
 app.include_router(api_router)

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Instagram, Mail } from "lucide-react";
-import Logo from "@/components/Logo";
 import { NAV_LINKS } from "@/components/Header";
 
 const FOOTER_LINKS = [...NAV_LINKS, { label: "FAQ", to: "/faq" }, { label: "Contact", to: "/contact" }];
@@ -14,9 +13,12 @@ const Footer = () => (
   <footer data-testid="site-footer" className="bg-forest text-offwhite">
     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
       <div className="space-y-5">
-        <Logo light />
+        <div data-testid="footer-wordmark">
+          <p className="font-serif font-semibold text-lg tracking-tight text-offwhite">Piece of Mind</p>
+          <p className="text-[10px] tracking-[0.24em] uppercase text-offwhite/70 mt-1">Mental Wellbeing</p>
+        </div>
         <p className="text-sm leading-relaxed text-offwhite/70 max-w-xs">
-          A non-judgmental mental health practice — individual therapy, corporate
+          A non-judgmental mental health practice: individual therapy, corporate
           well-being and community workshops. Online worldwide, in-person in Pune.
         </p>
       </div>
@@ -59,7 +61,9 @@ const Footer = () => (
             <a
               key={label}
               href={href}
-              aria-label={`${label} (link to be added)`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
               data-testid={`footer-social-${label.toLowerCase()}`}
               className="w-10 h-10 rounded-full border border-offwhite/25 flex items-center justify-center text-offwhite/70 transition-colors duration-300 hover:bg-sage hover:text-forest hover:border-sage"
             >

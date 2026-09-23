@@ -24,7 +24,7 @@ const TESTIMONIALS = [
 const TestimonialCard = ({ quote, name, tone }) => (
   <figure
     className={`w-[300px] sm:w-[380px] lg:w-[420px] shrink-0 rounded-[2rem] p-8 lg:p-10 mx-3 flex flex-col ${
-      tone === "sage" ? "bg-sage-light/70" : "bg-sand"
+      tone === "sage" ? "bg-sage-light" : "bg-sand"
     }`}
   >
     <span aria-hidden="true" className="font-serif text-5xl leading-none text-sage-dark">
@@ -43,14 +43,11 @@ const TestimonialCard = ({ quote, name, tone }) => (
 );
 
 const Testimonials = () => (
-  <section data-testid="testimonials-section" aria-label="What people have to say" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32 overflow-hidden">
+  <section data-testid="testimonials-section" aria-label="What people have to say" className="bg-forest py-24 lg:py-32 overflow-hidden">
     <div className="max-w-7xl mx-auto px-6 lg:px-8">
       <Reveal className="max-w-2xl">
-        <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-4" data-testid="testimonials-eyebrow">
-          Voices
-        </p>
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-forest" data-testid="testimonials-title">
-          What people <em className="italic text-sage-dark">have to say.</em>
+        <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-offwhite" data-testid="testimonials-title">
+          What people <em className="italic text-sage">have to say.</em>
         </h2>
       </Reveal>
     </div>

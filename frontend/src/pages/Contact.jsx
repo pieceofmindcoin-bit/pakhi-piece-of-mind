@@ -32,7 +32,7 @@ const Contact = () => {
     setSubmitting(true);
     try {
       await axios.post(`${API}/contact`, form);
-      toast.success("Thank you — your message has been received. We'll be in touch soon.");
+      toast.success("Thank you. Your message has been received and we'll be in touch soon.");
       setForm({ name: "", email: "", phone: "", enquiry_type: ENQUIRY_TYPES[0], message: "" });
     } catch {
       toast.error("Something went wrong. Please try again in a moment.");
@@ -44,20 +44,19 @@ const Contact = () => {
   return (
     <>
       <Seo
-        title="Contact — Piece of Mind"
-        description="Let's connect — reach out to Piece of Mind for individual support, workshops or corporate wellbeing."
+        title="Contact: Piece of Mind"
+        description="Let's connect. Reach out to Piece of Mind for individual therapy, workshops or corporate well-being."
       />
 
       <section data-testid="contact-hero" className="border-b border-line/50 bg-sand/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-28">
           <Reveal className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-sage-dark mb-6">Contact</p>
             <h1 className="font-serif text-4xl sm:text-5xl tracking-tight leading-[1.12] text-forest" data-testid="contact-headline">
               Let’s <em className="italic text-sage-dark">connect.</em>
             </h1>
             <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft">
               Whether you’re seeking support, curious about a workshop, or planning wellbeing
-              for your organisation — start the conversation here. There’s no pressure and no
+              for your organisation, start the conversation here. There’s no pressure and no
               wrong way to begin.
             </p>
           </Reveal>
@@ -184,7 +183,7 @@ const Contact = () => {
                       href="https://www.instagram.com/pieceofmind.co.in"
                       target="_blank"
                       rel="noreferrer"
-                      aria-label="Instagram — @pieceofmind.co.in"
+                      aria-label="Instagram @pieceofmind.co.in"
                       data-testid="contact-social-instagram"
                       className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-forest-soft transition-colors duration-300 hover:bg-sage hover:text-forest hover:border-sage"
                     >
