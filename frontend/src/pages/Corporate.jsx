@@ -27,10 +27,10 @@ const PROCESS = [
 ];
 
 const GLIMPSES = [
-  { src: "/assets/glimpse-2.webp", alt: "Facilitator presenting emotional wellbeing concepts to a group", caption: "Workshop · Emotional awareness", cls: "md:col-span-3 md:row-span-2" },
-  { src: "/assets/glimpse-1.webp", alt: "Participants writing and reflecting during an evening wellbeing circle", caption: "Community circle · Reflection", cls: "md:col-span-3" },
-  { src: "/assets/glimpse-3.webp", alt: "Stress management session with an interactive presentation", caption: "Workshop · Stress management", cls: "md:col-span-2" },
-  { src: "/assets/glimpse-4.webp", alt: "Team workshop around a conference table", caption: "Corporate session · Team wellbeing", cls: "md:col-span-4" },
+  { src: "/assets/corp-4.webp", alt: "Facilitator presenting eustress and distress concepts at a stress management workshop for BuildUp Global", caption: "Stress management workshop for BuildUp Global", cls: "md:col-span-3 md:row-span-2" },
+  { src: "/assets/corp-2.webp", alt: "Online communication and team dynamics workshop with Fine Equipments", caption: "Communication workshop for Fine Equipments", cls: "md:col-span-3" },
+  { src: "/assets/corp-1.webp", alt: "Workplace therapy session around a conference table", caption: "Workplace therapy", cls: "md:col-span-2" },
+  { src: "/assets/corp-3.webp", alt: "Piece of Mind mental health pop-up table at a café", caption: "Mental health pop-up", cls: "md:col-span-4" },
 ];
 
 const Corporate = () => (
