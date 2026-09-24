@@ -74,11 +74,11 @@ const HeroArt = () => {
         className="relative"
         aria-hidden="true"
       >
-        <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sand" />
+        <div className="absolute -inset-4 rounded-full bg-sand" />
         <img
           src="/assets/brand-mark.png"
           alt=""
-          className="relative w-64 sm:w-80 lg:w-[380px] aspect-square object-cover rounded-t-[999px] rounded-b-[2rem]"
+          className="relative w-64 sm:w-80 lg:w-[380px] aspect-square object-cover rounded-full"
         />
       </motion.div>
     </div>
@@ -196,10 +196,10 @@ const Home = () => (
         <div className="lg:col-span-5">
           <Reveal scale>
             <img
-              src="/assets/glimpse-2.webp"
-              alt="Anshita Gaur, founder of Piece of Mind, facilitating a session"
+              src="/assets/anshita.webp"
+              alt="Anshita Gaur, founder of Piece of Mind"
               loading="lazy"
-              className="w-full max-w-md aspect-square object-cover object-[center_20%] rounded-[2rem]"
+              className="w-full max-w-md aspect-square object-cover object-[center_25%] rounded-[2rem]"
               data-testid="home-anshita-photo"
             />
           </Reveal>

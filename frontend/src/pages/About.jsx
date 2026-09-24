@@ -86,10 +86,10 @@ const About = () => (
         <div className="lg:col-span-5">
           <Reveal scale>
             <img
-              src="/assets/glimpse-2.webp"
-              alt="Anshita Gaur, founder of Piece of Mind, facilitating a session"
+              src="/assets/anshita.webp"
+              alt="Anshita Gaur, founder of Piece of Mind"
               loading="lazy"
-              className="w-full max-w-md aspect-square object-cover object-[center_20%] rounded-[2rem]"
+              className="w-full max-w-md aspect-square object-cover object-[center_25%] rounded-[2rem]"
               data-testid="anshita-photo"
             />
           </Reveal>

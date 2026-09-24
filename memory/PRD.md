@@ -37,8 +37,9 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 
 - 2026-09-24 (v9 targeted pass): Services section now sage bg; moving topic bar moved directly above it with the 15 exact topics. Home Anshita section: added "Founder and Psychotherapist" subtitle, founder copy + Education list (About the Founder box), removed "Read my story". Logo is now a full circle (was clipped semicircle). Therapy: hero photo replaced with minimal green couch SVG illustration + exact two-line supporting copy; concerns rebuilt with the 15 exact floating topics; "Three steps to begin" now forest green; approach cards now forest green. Corporate: workshop option cards now forest green; "What you'll take away" removed (moved). Workshops: themes section ("Honest conversations / practical tools") removed; "What you'll take away" added with sage bg. About: "Therapy that meets you where you are" now shows the brand logo instead of a photo; exact startup description copy added; "What we stand for" -> "Our values" with Compassion / Curiosity / Care; Anshita section on sage-light bg. Verified 390/1280/1440: full circular logo, no overflow, contrast strong. No image gaps: couch delivered as SVG illustration; all other slots use existing assets.
 
+- 2026-09-24 (v10): Moving topic bar now forest green (offwhite text). Real Anshita portrait (anshita.webp, uploaded by founder) placed in Home + About founder sections (square crop). Home hero artwork is now fully circular. Verified visually.
+
 ## Backlog / Next Tasks
-- P1: Dedicated portrait photo of Anshita Gaur (user will send it; then swap into About Us + Home anshita sections).
 - P2: Event image upload (admin form has image URL field; object storage not wired).
 - P2: Admin view to read contact enquiries.
 
