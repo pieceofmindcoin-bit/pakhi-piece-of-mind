@@ -13,8 +13,8 @@ const TAKEAWAYS = [
 ];
 
 const PHOTOS = [
-  { src: "/assets/glimpse-3.webp", alt: "A facilitator leading a stress management workshop", caption: "Workshop · Stress management" },
-  { src: "/assets/glimpse-1.webp", alt: "Participants writing and reflecting during a wellbeing circle", caption: "Community circle · Reflection" },
+  { src: "/assets/workshop-attachment.webp", alt: "Participants gathered in a bright café space during a workshop on attachment styles", caption: "Workshop on attachment styles" },
+  { src: "/assets/workshop-letter-2026.webp", alt: "Participants writing letters during the Letter to 2026 goal setting workshop", caption: "Letter to 2026 - goal setting workshop" },
 ];
 
 const Workshops = () => (
@@ -93,7 +93,7 @@ const Workshops = () => (
                   src={src}
                   alt={alt}
                   loading="lazy"
-                  className="w-full aspect-[4/5] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-12 text-offwhite text-sm opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                   {caption}

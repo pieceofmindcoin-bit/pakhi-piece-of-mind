@@ -3,6 +3,23 @@ import Reveal from "@/components/Reveal";
 import SectionIntro from "@/components/SectionIntro";
 import ButtonLink from "@/components/ButtonLink";
 import FinalCta from "@/components/FinalCta";
+import { TestimonialsSection } from "@/components/Testimonials";
+
+const CORPORATE_TESTIMONIALS = [
+  {
+    quote: "Very interactive workshop. Helpful for me to recall on my weakness, work on my skill set and communication part.",
+  },
+  {
+    quote: "Mindful workshop! Helped me find and work upon my area of improvement.",
+  },
+  {
+    quote: "Very meaningful workshop it was. It helped us to improve our skills that would be going to improve our team also. Clarity in thoughts must be flown among the team.",
+  },
+  {
+    quote:
+      "I actually REALLY loved the workshop. We had group activities as part of a corporate workshop, but it was focused more on the individual. The Piece of Mind team ensured that we felt extremely comfortable. The discussions were interactive, focused on important techniques that could be used around the workplace and is definitely on my daily stress buster to-do list!",
+  },
+];
 
 const WAYS = [
   {
@@ -167,6 +184,15 @@ const Corporate = () => (
         </div>
       </div>
     </section>
+
+    <TestimonialsSection
+      sectionTestId="corporate-testimonials-section"
+      titleTestId="corporate-testimonials-title"
+      marqueeTestId="corporate-testimonials-marquee"
+      ariaLabel="What teams have to say"
+      title={<>What teams <em className="italic text-sage">have to say.</em></>}
+      items={CORPORATE_TESTIMONIALS}
+    />
 
     <FinalCta
       testId="corporate-cta"

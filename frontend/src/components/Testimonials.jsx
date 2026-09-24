@@ -23,7 +23,7 @@ const TESTIMONIALS = [
 
 const TestimonialCard = ({ quote, name, tone }) => (
   <figure
-    className={`w-[300px] sm:w-[380px] lg:w-[420px] shrink-0 rounded-[2rem] p-8 lg:p-10 mx-3 flex flex-col ${
+    className={`h-full w-[300px] sm:w-[380px] lg:w-[420px] shrink-0 rounded-[2rem] p-8 lg:p-10 mx-3 flex flex-col ${
       tone === "sage" ? "bg-sage-light" : "bg-sand"
     }`}
   >
@@ -33,32 +33,44 @@ const TestimonialCard = ({ quote, name, tone }) => (
     <blockquote className="mt-4 flex-1 text-sm lg:text-base leading-relaxed text-forest">
       {quote}
     </blockquote>
-    <figcaption className="mt-7 flex items-center gap-3">
-      <span className="w-9 h-9 rounded-full bg-forest text-offwhite flex items-center justify-center text-xs font-semibold tracking-wide">
-        {name}
-      </span>
-      <span className="text-xs tracking-[0.18em] uppercase text-forest-soft">Therapy client</span>
-    </figcaption>
+    {name && (
+      <figcaption className="mt-7 flex items-center gap-3">
+        <span className="w-9 h-9 rounded-full bg-forest text-offwhite flex items-center justify-center text-xs font-semibold tracking-wide">
+          {name}
+        </span>
+      </figcaption>
+    )}
   </figure>
 );
 
-const Testimonials = () => (
-  <section data-testid="testimonials-section" aria-label="What people have to say" className="bg-forest py-24 lg:py-32 overflow-hidden">
+export const TestimonialsSection = ({ sectionTestId, titleTestId, marqueeTestId, ariaLabel, title, items }) => (
+  <section data-testid={sectionTestId} aria-label={ariaLabel} className="bg-forest py-24 lg:py-32 overflow-hidden">
     <div className="max-w-7xl mx-auto px-6 lg:px-8">
       <Reveal className="max-w-2xl">
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-offwhite" data-testid="testimonials-title">
-          What people <em className="italic text-sage">have to say.</em>
+        <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-offwhite" data-testid={titleTestId}>
+          {title}
         </h2>
       </Reveal>
     </div>
-    <div className="mt-14" data-testid="testimonials-marquee">
-      <Marquee speed={32} gradient={false} pauseOnHover direction="left">
-        {TESTIMONIALS.map((t, i) => (
-          <TestimonialCard key={t.name} {...t} tone={i % 2 === 0 ? "sand" : "sage"} />
+    <div className="mt-14" data-testid={marqueeTestId}>
+      <Marquee speed={52} gradient={false} direction="left" className="[&_.rfm-child]:flex [&_.rfm-child]:self-stretch">
+        {items.map((t, i) => (
+          <TestimonialCard key={t.name || i} {...t} tone={i % 2 === 0 ? "sand" : "sage"} />
         ))}
       </Marquee>
     </div>
   </section>
+);
+
+const Testimonials = () => (
+  <TestimonialsSection
+    sectionTestId="testimonials-section"
+    titleTestId="testimonials-title"
+    marqueeTestId="testimonials-marquee"
+    ariaLabel="What people have to say"
+    title={<>What people <em className="italic text-sage">have to say.</em></>}
+    items={TESTIMONIALS}
+  />
 );
 
 export default Testimonials;

@@ -46,3 +46,8 @@ Build a complete production-ready multi-page mental wellness website "A Piece of
 
 ## Test Credentials
 No authentication in this app. See /app/memory/test_credentials.md.
+
+## Update - 24 Sep 2026
+- Workshops & Events gallery: replaced 2 old photos with user-uploaded photos (Workshop on attachment styles, Letter to 2026 - goal setting workshop), rotation fixed, 4:3 aspect.
+- Homepage testimonials: marquee faster (speed 52), no pause on hover/click, removed "Therapy client" labels, all cards equal height.
+- Corporate page: added "What teams have to say" moving testimonial carousel (4 corporate workshop testimonials, same style/speed/equal sizing).
