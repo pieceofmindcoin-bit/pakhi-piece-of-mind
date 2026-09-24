@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import Seo from "@/components/Seo";
 import Reveal from "@/components/Reveal";
 import SectionIntro from "@/components/SectionIntro";
@@ -7,14 +6,10 @@ import FinalCta from "@/components/FinalCta";
 
 const CIRCLES = ["Groups", "Communities", "Organisations", "Specific needs"];
 
-const THEMES = [
-  { title: "Mental wellbeing", copy: "A warm, honest foundation: what mental health really is and how to care for it." },
-  { title: "Emotional awareness", copy: "Learning to notice, name and normalise feelings instead of fighting them." },
-  { title: "Stress management", copy: "Practical ways to understand pressure, prevent burnout and recover well." },
-  { title: "Self-awareness", copy: "Reflective exercises that reveal patterns, needs and personal strengths." },
-  { title: "Resilience", copy: "Tools for navigating setbacks, uncertainty and change with steadiness." },
-  { title: "Communication", copy: "Everyday skills for listening deeply and speaking with clarity and kindness." },
-  { title: "Healthy workplace culture", copy: "How teams can build trust, psychological safety and mutual support." },
+const TAKEAWAYS = [
+  { num: "01", title: "Self reflection", copy: "Greater awareness of your own mind, and a stronger, kinder understanding of yourself.", offset: "" },
+  { num: "02", title: "Connections", copy: "Better communication, healthier conversations, and a more supportive environment around you.", offset: "lg:translate-y-10" },
+  { num: "03", title: "Practical tools", copy: "Simple coping tools people actually use, long after the session ends.", offset: "lg:translate-y-20" },
 ];
 
 const PHOTOS = [
@@ -66,22 +61,18 @@ const Workshops = () => (
       </div>
     </section>
 
-    <section data-testid="workshop-themes-section" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
+    <section data-testid="takeaways-section" className="bg-sage py-24 lg:py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro
-          id="themes"
-          title={<>Honest conversations, <em className="italic text-sage-dark">practical tools</em></>}
-          copy="No lectures, no jargon. Just reflection, interaction and things you can use the same day."
-        />
-        <div className="mt-14 grid md:grid-cols-2 gap-x-14">
-          {THEMES.map(({ title, copy }, i) => (
-            <Reveal key={title} delay={Math.min(i * 0.04, 0.2)}>
-              <div className="group border-t border-line/70 py-7 transition-colors duration-300 hover:bg-offwhite/60" data-testid={`theme-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                <div className="flex items-baseline justify-between gap-6">
-                  <h3 className="font-serif text-xl font-semibold tracking-tight text-forest transition-transform duration-300 group-hover:translate-x-1">{title}</h3>
-                  <ArrowUpRight size={18} strokeWidth={1.5} className="text-sage-dark shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-forest-soft max-w-md">{copy}</p>
+        <SectionIntro id="takeaways" title={<>What you’ll <em className="italic text-forest/70">take away</em></>} />
+        <div className="mt-20 grid sm:grid-cols-3 gap-14 lg:gap-12 lg:pb-20">
+          {TAKEAWAYS.map(({ num, title, copy, offset }, i) => (
+            <Reveal key={num} delay={i * 0.12} className={offset}>
+              <div data-testid={`takeaway-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
+                <span className="inline-flex w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-forest items-center justify-center font-serif text-3xl lg:text-4xl text-offwhite">
+                  {num}
+                </span>
+                <h3 className="mt-8 font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-forest">{title}</h3>
+                <p className="mt-4 text-sm lg:text-base leading-relaxed text-forest/80 max-w-xs">{copy}</p>
               </div>
             </Reveal>
           ))}

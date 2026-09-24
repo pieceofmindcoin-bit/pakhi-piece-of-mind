@@ -6,8 +6,7 @@ import FinalCta from "@/components/FinalCta";
 const VALUES = [
   { title: "Compassion", copy: "We meet every story with warmth and without judgment." },
   { title: "Curiosity", copy: "We hold space for questions, not just answers." },
-  { title: "Confidentiality", copy: "Your story is yours. We protect it with care." },
-  { title: "Integration", copy: "We draw from many modalities so therapy fits you, not the other way around." },
+  { title: "Care", copy: "We create gentler spaces where every part of you is looked after." },
 ];
 
 const About = () => (
@@ -38,20 +37,14 @@ const About = () => (
           <Reveal delay={0.1}>
             <div className="mt-6 space-y-5 text-base lg:text-lg leading-relaxed text-forest-soft">
               <p>
-                Piece of Mind was created for the moments when things feel too much, or when you
-                simply want to understand yourself better. We offer individual therapy, corporate
-                well-being workshops, and community events designed to make mental health feel a
-                little less lonely.
+                Piece of Mind is a mental-health startup built on the values of empathy,
+                curiosity, and care. It aims to help both individuals and companies build a
+                healthy and mindful lifestyle.
               </p>
               <p>
-                We work with individuals online from anywhere in the world, and in-person in Pune.
-                Our work is grounded in warmth rather than clinical distance. We believe the
-                therapeutic relationship itself is a form of healing.
-              </p>
-              <p>
-                Whether you're navigating grief, burnout, life transitions, or just a quiet feeling
-                that something's off, there's a place for you here. You don't have to have it all
-                figured out before you begin.
+                Rooted in trauma-informed values, Piece of Mind offers a compassionate space to
+                slow down, untangle your thoughts, and reconnect with yourself, one conversation
+                at a time.
               </p>
             </div>
           </Reveal>
@@ -59,13 +52,13 @@ const About = () => (
         <Reveal delay={0.15} scale>
           <div className="relative max-w-md mx-auto lg:ml-auto w-full">
             <div className="absolute -inset-4 rounded-[2rem] bg-sage-light" aria-hidden="true" />
-            <img
-              src="/assets/glimpse-1.webp"
-              alt="Participants reflecting and writing during a small-group wellbeing session"
-              loading="lazy"
-              className="relative w-full aspect-square object-cover rounded-[2rem]"
-              data-testid="about-who-image"
-            />
+            <div className="relative w-full aspect-square rounded-[2rem] bg-sand flex items-center justify-center p-12" data-testid="about-who-logo">
+              <img
+                src="/assets/brand-mark.png"
+                alt="Piece of Mind logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
         </Reveal>
       </div>
@@ -73,8 +66,8 @@ const About = () => (
 
     <section data-testid="about-values" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro id="values" title={<>What we <em className="italic text-sage-dark">stand for.</em></>} />
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <SectionIntro id="values" title={<>Our <em className="italic text-sage-dark">values</em></>} />
+        <div className="mt-14 grid sm:grid-cols-3 gap-6">
           {VALUES.map(({ title, copy }, i) => (
             <Reveal key={title} delay={i * 0.08} className="h-full">
               <div className="h-full rounded-[1.75rem] border border-sage/50 bg-sage-light/70 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-sage" data-testid={`value-card-${title.toLowerCase()}`}>
@@ -88,7 +81,7 @@ const About = () => (
       </div>
     </section>
 
-    <section data-testid="about-anshita" className="py-24 lg:py-32">
+    <section data-testid="about-anshita" className="bg-sage-light/60 border-y border-line/50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
         <div className="lg:col-span-5">
           <Reveal scale>

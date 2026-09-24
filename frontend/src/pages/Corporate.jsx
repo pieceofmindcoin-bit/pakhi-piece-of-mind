@@ -20,12 +20,6 @@ const WAYS = [
   },
 ];
 
-const TAKEAWAYS = [
-  { num: "01", title: "Self reflection", copy: "Greater awareness of your own mind, and a stronger, kinder understanding of yourself.", offset: "" },
-  { num: "02", title: "Connections", copy: "Better communication, healthier conversations, and a more supportive environment around you.", offset: "lg:translate-y-10" },
-  { num: "03", title: "Practical tools", copy: "Simple coping tools people actually use, long after the session ends.", offset: "lg:translate-y-20" },
-];
-
 const PROCESS = [
   { num: "01", title: "Discovery / Brief", copy: "We listen first: to your people, your context and what wellbeing means in your world." },
   { num: "02", title: "Workshop Design", copy: "We shape the session around your team, culture, goals and format." },
@@ -106,40 +100,21 @@ const Corporate = () => (
         <div className="mt-14 grid md:grid-cols-2 gap-6 lg:gap-8">
           {WAYS.map(({ num, title, copy, testId, examples }, i) => (
             <Reveal key={num} delay={i * 0.1} className="h-full">
-              <div className="h-full rounded-[1.75rem] border border-sage/50 bg-sage-light/70 p-9 lg:p-11 transition-all duration-300 hover:-translate-y-1 hover:border-sage" data-testid={testId}>
-                <span className="inline-flex w-16 h-16 rounded-full bg-offwhite border border-sage/60 items-center justify-center font-serif text-xl text-forest">
+              <div className="h-full rounded-[1.75rem] bg-forest p-9 lg:p-11 transition-all duration-300 hover:-translate-y-1" data-testid={testId}>
+                <span className="inline-flex w-16 h-16 rounded-full bg-offwhite items-center justify-center font-serif text-xl text-forest">
                   {num}
                 </span>
-                <h3 className="mt-7 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest">{title}</h3>
-                <p className="mt-3 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
+                <h3 className="mt-7 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-offwhite">{title}</h3>
+                <p className="mt-3 text-sm lg:text-base leading-relaxed text-offwhite/80">{copy}</p>
                 {examples && (
                   <div className="mt-6 flex flex-wrap gap-2" data-testid="existing-workshop-examples">
                     {examples.map((e) => (
-                      <span key={e} className="rounded-full border border-line bg-offwhite px-4 py-1.5 text-xs lg:text-sm text-forest-soft">
+                      <span key={e} className="rounded-full border border-offwhite/30 bg-offwhite/10 px-4 py-1.5 text-xs lg:text-sm text-offwhite/90">
                         {e}
                       </span>
                     ))}
                   </div>
                 )}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section data-testid="benefits-section" className="py-24 lg:py-36">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro id="benefits" title={<>What you’ll <em className="italic text-sage-dark">take away</em></>} />
-        <div className="mt-20 grid sm:grid-cols-3 gap-14 lg:gap-12 lg:pb-20">
-          {TAKEAWAYS.map(({ num, title, copy, offset }, i) => (
-            <Reveal key={num} delay={i * 0.12} className={offset}>
-              <div data-testid={`takeaway-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                <span className="inline-flex w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-sage-light border border-sage/60 items-center justify-center font-serif text-3xl lg:text-4xl text-forest">
-                  {num}
-                </span>
-                <h3 className="mt-8 font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-forest">{title}</h3>
-                <p className="mt-4 text-sm lg:text-base leading-relaxed text-forest-soft max-w-xs">{copy}</p>
               </div>
             </Reveal>
           ))}

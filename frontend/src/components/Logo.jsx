@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
 
-export const LogoMark = ({ width = 56, className = "" }) => (
-  <span
+export const LogoMark = ({ size = 40, className = "" }) => (
+  <img
+    src="/assets/brand-mark.png"
+    alt=""
     aria-hidden="true"
-    className={`block overflow-hidden bg-sand ${className}`}
-    style={{ width, height: Math.round(width * 0.58), borderRadius: `${width}px ${width}px 0 0` }}
-  >
-    <img
-      src="/assets/brand-mark.png"
-      alt=""
-      className="w-full object-cover object-[center_30%]"
-      style={{ width, height: width }}
-    />
-  </span>
+    className={`rounded-full object-cover shrink-0 ${className}`}
+    style={{ width: size, height: size }}
+  />
 );
 
 const Logo = ({ light = false }) => (

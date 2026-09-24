@@ -5,15 +5,36 @@ import SectionIntro from "@/components/SectionIntro";
 import ButtonLink from "@/components/ButtonLink";
 import FinalCta from "@/components/FinalCta";
 
+const CouchGraphic = () => (
+  <svg viewBox="0 0 360 260" className="w-64 lg:w-72" role="img" aria-label="Minimal illustration of a calm green therapy couch">
+    <rect x="72" y="58" width="216" height="92" rx="30" fill="#2C3E3E" />
+    <rect x="96" y="82" width="48" height="42" rx="12" fill="#F2E9DC" transform="rotate(-8 120 103)" />
+    <rect x="40" y="108" width="42" height="82" rx="18" fill="#2C3E3E" />
+    <rect x="278" y="108" width="42" height="82" rx="18" fill="#2C3E3E" />
+    <rect x="86" y="110" width="90" height="48" rx="14" fill="#B7C9B3" />
+    <rect x="184" y="110" width="90" height="48" rx="14" fill="#B7C9B3" />
+    <rect x="76" y="158" width="208" height="34" rx="14" fill="#44575A" />
+    <rect x="88" y="192" width="12" height="26" rx="6" fill="#2C3E3E" />
+    <rect x="260" y="192" width="12" height="26" rx="6" fill="#2C3E3E" />
+  </svg>
+);
+
 const CONCERNS = [
-  { label: "Anxiety & overthinking", className: "text-2xl lg:text-3xl italic text-forest", style: { top: "4%", left: "6%" } },
-  { label: "Stress & burnout", className: "text-xl lg:text-2xl text-sage-dark", style: { top: "8%", right: "8%" } },
-  { label: "Grief & loss", className: "text-lg lg:text-xl italic text-forest-soft", style: { top: "36%", left: "0%", transform: "rotate(-4deg)" } },
-  { label: "Relationships", className: "text-2xl lg:text-3xl text-forest", style: { top: "32%", right: "2%", transform: "rotate(3deg)" } },
-  { label: "Low mood", className: "text-xl lg:text-2xl italic text-sage-dark", style: { bottom: "26%", left: "10%" } },
-  { label: "Self-esteem & self-worth", className: "text-lg lg:text-xl text-forest-soft", style: { bottom: "20%", right: "6%", transform: "rotate(-3deg)" } },
-  { label: "Life transitions", className: "text-2xl lg:text-3xl text-forest", style: { bottom: "2%", left: "30%" } },
-  { label: "Feeling stuck or lost", className: "text-xl lg:text-2xl italic text-sage-dark", style: { bottom: "6%", right: "24%", transform: "rotate(2deg)" } },
+  { label: "Low mood", c: "text-xl lg:text-2xl italic text-sage-dark", s: { top: "2%", left: "10%" } },
+  { label: "Anxiety", c: "text-2xl lg:text-3xl text-forest", s: { top: "5%", right: "14%" } },
+  { label: "Grief", c: "text-lg lg:text-xl italic text-forest-soft", s: { top: "18%", left: "33%", transform: "rotate(-3deg)" } },
+  { label: "Trauma", c: "text-xl lg:text-2xl text-forest", s: { top: "20%", right: "31%", transform: "rotate(2deg)" } },
+  { label: "Stress & burnout", c: "text-lg lg:text-xl italic text-sage-dark", s: { top: "31%", left: "2%" } },
+  { label: "Shame & guilt", c: "text-xl lg:text-2xl text-forest", s: { top: "34%", right: "2%", transform: "rotate(-2deg)" } },
+  { label: "Life transitions", c: "text-lg lg:text-xl italic text-forest-soft", s: { top: "47%", left: "7%" } },
+  { label: "Emotional dysregulation", c: "text-base lg:text-lg text-sage-dark", s: { top: "49%", right: "4%", transform: "rotate(2deg)" } },
+  { label: "Neurodiversity", c: "text-2xl lg:text-3xl text-forest", s: { bottom: "27%", left: "4%" } },
+  { label: "Feeling “not like yourself”", c: "text-lg lg:text-xl italic text-forest-soft", s: { bottom: "29%", right: "10%" } },
+  { label: "Relationship difficulties", c: "text-lg lg:text-xl text-forest", s: { bottom: "15%", left: "15%", transform: "rotate(-2deg)" } },
+  { label: "Self-esteem", c: "text-xl lg:text-2xl italic text-sage-dark", s: { bottom: "3%", left: "39%" } },
+  { label: "Identity & belonging", c: "text-lg lg:text-xl text-forest", s: { bottom: "9%", right: "3%" } },
+  { label: "Social issues", c: "text-base lg:text-lg italic text-forest-soft", s: { top: "11%", left: "49%", transform: "rotate(2deg)" } },
+  { label: "Gender and sexuality", c: "text-lg lg:text-xl text-forest", s: { bottom: "17%", right: "29%" } },
 ];
 
 const STEPS = [
@@ -33,7 +54,7 @@ const Therapy = () => (
   <>
     <Seo
       title="Individual Therapy: Piece of Mind"
-      description="1:1 therapy, on your terms. Non-judgmental, compassionate and confidential. Online worldwide and in-person in Pune."
+      description="1:1 therapy, on your terms. Non-judgmental, compassionate and confidential services. Available online worldwide and in person in Pune."
     />
 
     <section data-testid="therapy-hero" className="bg-sand/60 border-b border-line/50">
@@ -44,7 +65,9 @@ const Therapy = () => (
               1:1 therapy, on <em className="italic text-sage-dark">your terms.</em>
             </h1>
             <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl" data-testid="therapy-hero-copy">
-              Non-judgmental, compassionate, and confidential. Online worldwide and in-person in Pune.
+              Non-judgmental, compassionate and confidential services
+              <br />
+              Available online worldwide and in person in Pune
             </p>
             <div className="mt-10">
               <ButtonLink to="/contact" testId="therapy-hero-cta" withArrow>
@@ -55,13 +78,11 @@ const Therapy = () => (
         </div>
         <div className="hidden lg:flex lg:col-span-5 justify-center">
           <Reveal delay={0.15} scale>
-            <div className="relative" aria-hidden="true">
-              <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sage-light" />
-              <img
-                src="/assets/glimpse-1.webp"
-                alt="A calm, warm group session in a softly lit room"
-                className="relative w-72 lg:w-80 aspect-[4/5] object-cover rounded-t-[999px] rounded-b-[2rem]"
-              />
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sage-light" aria-hidden="true" />
+              <div className="relative w-72 lg:w-80 aspect-[4/5] rounded-t-[999px] rounded-b-[2rem] bg-sand flex items-center justify-center" data-testid="therapy-hero-visual">
+                <CouchGraphic />
+              </div>
             </div>
           </Reveal>
         </div>
@@ -86,15 +107,15 @@ const Therapy = () => (
 
     <section data-testid="therapy-concerns" className="bg-sand/60 border-y border-line/50 py-28 lg:py-40 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <Reveal className="relative hidden lg:block min-h-[540px]" data-testid="concerns-canvas">
+        <Reveal className="relative hidden lg:block min-h-[640px]" data-testid="concerns-canvas">
           <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-3xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-forest text-center max-w-md" data-testid="concerns-title">
             Wherever you’re <em className="italic text-sage-dark">starting from.</em>
           </h2>
           {CONCERNS.map((c) => (
             <span
               key={c.label}
-              className={`absolute font-serif whitespace-nowrap ${c.className}`}
-              style={c.style}
+              className={`absolute font-serif whitespace-nowrap ${c.c}`}
+              style={c.s}
               data-testid={`concern-${c.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
             >
               {c.label}
@@ -119,18 +140,18 @@ const Therapy = () => (
       </div>
     </section>
 
-    <section data-testid="therapy-how" className="py-24 lg:py-32">
+    <section data-testid="therapy-how" className="bg-forest py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionIntro id="how-it-works" title={<>Three steps <em className="italic text-sage-dark">to begin.</em></>} />
+        <SectionIntro dark id="how-it-works" title={<>Three steps <em className="italic text-sage">to begin.</em></>} />
         <div className="mt-16 grid sm:grid-cols-3 gap-12 lg:gap-10">
           {STEPS.map(({ num, title, copy }, i) => (
             <Reveal key={num} delay={i * 0.12}>
               <div className="text-center sm:text-left" data-testid={`step-${num}`}>
-                <span className="inline-flex w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-sage-light border border-sage/60 items-center justify-center font-serif text-2xl lg:text-3xl text-forest">
+                <span className="inline-flex w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-offwhite items-center justify-center font-serif text-2xl lg:text-3xl text-forest">
                   {num}
                 </span>
-                <h3 className="mt-6 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest">{title}</h3>
-                <p className="mt-3 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
+                <h3 className="mt-6 font-serif text-xl lg:text-2xl font-semibold tracking-tight text-offwhite">{title}</h3>
+                <p className="mt-3 text-sm lg:text-base leading-relaxed text-offwhite/75">{copy}</p>
               </div>
             </Reveal>
           ))}
@@ -138,15 +159,15 @@ const Therapy = () => (
       </div>
     </section>
 
-    <section data-testid="therapy-approach" className="bg-sand/60 border-y border-line/50 py-24 lg:py-32">
+    <section data-testid="therapy-approach" className="bg-sand/60 border-b border-line/50 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionIntro id="our-approach" title={<>The way <em className="italic text-sage-dark">we work.</em></>} />
         <div className="mt-14 grid sm:grid-cols-2 gap-6 lg:gap-8">
           {APPROACH.map(({ title, copy }, i) => (
             <Reveal key={title} delay={i * 0.08} className="h-full">
-              <div className="h-full rounded-[1.75rem] border border-sage/50 bg-sage-light/70 p-9 transition-all duration-300 hover:-translate-y-1 hover:border-sage" data-testid={`approach-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                <h3 className="font-serif text-xl lg:text-2xl font-semibold tracking-tight text-forest">{title}</h3>
-                <p className="mt-3 text-sm lg:text-base leading-relaxed text-forest-soft">{copy}</p>
+              <div className="h-full rounded-[1.75rem] bg-forest p-9 transition-all duration-300 hover:-translate-y-1" data-testid={`approach-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
+                <h3 className="font-serif text-xl lg:text-2xl font-semibold tracking-tight text-offwhite">{title}</h3>
+                <p className="mt-3 text-sm lg:text-base leading-relaxed text-offwhite/80">{copy}</p>
               </div>
             </Reveal>
           ))}

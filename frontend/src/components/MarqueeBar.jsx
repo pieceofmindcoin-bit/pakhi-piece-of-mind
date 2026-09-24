@@ -1,15 +1,21 @@
 import Marquee from "react-fast-marquee";
 
 const PHRASES = [
-  "Life transitions",
-  "Neurodiversity",
-  "Feeling not like yourself",
   "Low mood",
-  "Stress",
   "Anxiety",
   "Grief",
-  "Burnout",
+  "Trauma",
+  "Stress & burnout",
   "Shame & guilt",
+  "Life transitions",
+  "Emotional dysregulation",
+  "Neurodiversity",
+  "Feeling “not like yourself”",
+  "Relationship difficulties",
+  "Self-esteem",
+  "Identity & belonging",
+  "Social issues",
+  "Gender and sexuality",
 ];
 
 const MarqueeBar = () => (

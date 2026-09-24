@@ -153,7 +153,9 @@ const Home = () => (
       </div>
     </section>
 
-    <section data-testid="support-ways-section" className="py-24 lg:py-32">
+    <MarqueeBar />
+
+    <section data-testid="support-ways-section" className="bg-sage py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionIntro
           id="support-ways"
@@ -187,8 +189,6 @@ const Home = () => (
       </div>
     </section>
 
-    <MarqueeBar />
-
     <Testimonials />
 
     <section data-testid="home-anshita" className="bg-sand/60 border-b border-line/50 py-24 lg:py-32">
@@ -209,23 +209,35 @@ const Home = () => (
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-forest" data-testid="home-anshita-heading">
               Hi, I’m <em className="italic text-sage-dark">Anshita Gaur.</em>
             </h2>
+            <p className="mt-3 text-base lg:text-lg font-medium text-sage-dark" data-testid="home-anshita-subtitle">
+              Founder and Psychotherapist
+            </p>
             <blockquote className="mt-8 font-serif italic text-xl lg:text-2xl leading-relaxed text-forest border-l-2 border-sage pl-6">
               “Showing up as you are is the most courageous thing you can do, and you don’t have
               to do it alone.”
             </blockquote>
-            <p className="mt-8 text-base lg:text-lg leading-relaxed text-forest-soft">
-              A trauma-informed, queer-affirmative psychotherapist working with individuals,
-              groups, and organisations to make mental health feel a little less lonely.
-              Integrative, person-centered, and committed to meeting you where you are.
-            </p>
-            <Link
-              to="/about"
-              data-testid="home-anshita-link"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-forest"
-            >
-              Read my story
-              <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1.5" />
-            </Link>
+            <div className="mt-8 space-y-5 text-base lg:text-lg leading-relaxed text-forest-soft">
+              <p>
+                I’m a certified psychotherapist who has supported 300+ individuals across the
+                globe on their mental health journeys.
+              </p>
+              <p>
+                I founded Piece of Mind with a simple belief that people don’t need to be fixed,
+                but they need space. Space to feel, to pause, to understand themselves without
+                judgment. My work is rooted in creating that gentler space, where I can walk with
+                you through the different pieces of your mind.
+              </p>
+            </div>
+            <div className="mt-10 rounded-[1.75rem] border border-line/70 bg-offwhite/60 p-7 lg:p-8" data-testid="home-anshita-education">
+              <h3 className="font-serif text-xl font-semibold text-forest">About the Founder</h3>
+              <p className="mt-5 text-sm font-semibold text-forest">Education</p>
+              <ul className="mt-3 space-y-2.5 text-sm lg:text-base leading-relaxed text-forest-soft">
+                <li>MSc Counselling Studies, University of Edinburgh, UK</li>
+                <li>COSCA Approved Certificate in Counselling Skills, UK</li>
+                <li>Diploma in Counselling and Psychotherapy, India</li>
+                <li>BA in Psychology, Sociology and Economics, Fergusson College, Pune</li>
+              </ul>
+            </div>
           </Reveal>
         </div>
       </div>
