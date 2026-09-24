@@ -37,13 +37,13 @@ const About = () => (
           </Reveal>
         </div>
         <Reveal delay={0.15} scale>
-          <div className="relative max-w-md mx-auto lg:ml-auto w-full">
-            <div className="absolute -inset-4 rounded-full bg-offwhite/50" aria-hidden="true" />
-            <div className="relative w-full aspect-square rounded-full bg-sand flex items-center justify-center p-12" data-testid="about-who-logo">
+          <div className="relative max-w-md mx-auto lg:ml-auto w-full flex justify-center">
+            <div className="relative" data-testid="about-who-logo">
+              <div className="absolute -inset-4 rounded-full bg-sand" aria-hidden="true" />
               <img
                 src="/assets/brand-mark.png"
                 alt="Piece of Mind logo"
-                className="w-full h-full object-contain"
+                className="relative w-64 sm:w-72 lg:w-80 aspect-square object-cover rounded-full"
               />
             </div>
           </div>

@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 import Reveal from "@/components/Reveal";
 
-const TESTIMONIALS = [
+export const TESTIMONIALS = [
   {
     quote: "The therapist made me feel safe. Showing vulnerability is really hard, but she made it so easy.",
     name: "RG",

@@ -158,6 +158,15 @@ const Corporate = () => (
       </div>
     </section>
 
+    <TestimonialsSection
+      sectionTestId="corporate-testimonials-section"
+      titleTestId="corporate-testimonials-title"
+      marqueeTestId="corporate-testimonials-marquee"
+      ariaLabel="What teams have to say"
+      title={<>What teams <em className="italic text-sage">have to say.</em></>}
+      items={CORPORATE_TESTIMONIALS}
+    />
+
     <section id="glimpses" data-testid="glimpses-section" className="py-24 lg:py-32 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionIntro
@@ -184,15 +193,6 @@ const Corporate = () => (
         </div>
       </div>
     </section>
-
-    <TestimonialsSection
-      sectionTestId="corporate-testimonials-section"
-      titleTestId="corporate-testimonials-title"
-      marqueeTestId="corporate-testimonials-marquee"
-      ariaLabel="What teams have to say"
-      title={<>What teams <em className="italic text-sage">have to say.</em></>}
-      items={CORPORATE_TESTIMONIALS}
-    />
 
     <FinalCta
       testId="corporate-cta"

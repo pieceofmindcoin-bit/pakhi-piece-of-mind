@@ -199,7 +199,7 @@ const Home = () => (
       title={<>Ready when <em className="italic text-sage">you are.</em></>}
       copy="Explore therapy for yourself, a workshop to learn from, or a wellbeing programme for your people."
       primary={{ to: "/contact", label: "Get in Touch", testId: "home-cta-contact" }}
-      secondary={{ to: "/corporate-wellbeing", label: "Corporate Well-being", testId: "home-cta-corporate" }}
+      secondary={{ href: "https://tealfeed.com/pieceofmind/connect/call?callType=6992bf63d67b9d885a672a4b", label: "Book a session", testId: "home-cta-book-session" }}
     />
   </>
 );

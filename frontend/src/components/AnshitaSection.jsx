@@ -37,11 +37,15 @@ const AnshitaSection = ({ testId, bgClass = "bg-sand/60 border-b border-line/50"
               judgment. My work is rooted in creating that gentler space, where I can walk with
               you through the different pieces of your mind.
             </p>
-            <p data-testid={`${testId}-education`}>
-              Education: MSc Counselling Studies, University of Edinburgh, UK; COSCA Approved
-              Certificate in Counselling Skills, UK; Diploma in Counselling and Psychotherapy,
-              India; BA in Psychology, Sociology and Economics, Fergusson College, Pune.
-            </p>
+            <div data-testid={`${testId}-education`}>
+              <p className="font-medium text-forest">Education</p>
+              <ul className="mt-3 space-y-2.5">
+                <li>MSc Counselling Studies, University of Edinburgh, UK</li>
+                <li>COSCA Approved Certificate in Counselling Skills, UK</li>
+                <li>Diploma in Counselling and Psychotherapy, India</li>
+                <li>BA in Psychology, Sociology and Economics, Fergusson College, Pune</li>
+              </ul>
+            </div>
           </div>
         </Reveal>
       </div>

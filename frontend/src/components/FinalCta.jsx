@@ -19,6 +19,18 @@ const FinalCta = ({ title, copy, primary, secondary, testId = "final-cta" }) => 
             {primary.label}
           </ButtonLink>
           {secondary && (
+            secondary.href ? (
+              <a
+                href={secondary.href}
+                target="_blank"
+                rel="noreferrer"
+                data-testid={secondary.testId}
+                className="group inline-flex items-center gap-2 rounded-full border border-offwhite/35 px-8 py-3.5 text-sm font-semibold text-offwhite transition-colors duration-300 hover:border-offwhite hover:bg-offwhite/10"
+              >
+                {secondary.label}
+                <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            ) : (
             <Link
               to={secondary.to}
               data-testid={secondary.testId}
@@ -27,6 +39,7 @@ const FinalCta = ({ title, copy, primary, secondary, testId = "final-cta" }) => 
               {secondary.label}
               <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
+            )
           )}
         </div>
         <div className="mt-9 flex justify-center gap-3" data-testid={`${testId}-socials`}>

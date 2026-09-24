@@ -61,3 +61,11 @@ No authentication in this app. See /app/memory/test_credentials.md.
 - About: removed "A space to be human" hero; "Therapy that meets you where you are" is now first section (sage bg, circular logo); Values cards bigger, headings beside green dot.
 - Workshops hero: added simple circular SVG graphic (people in a circle).
 - Verified at 1366px and 375px via screenshots; robots.txt/sitemap.xml serve correctly.
+
+## Update - 24 Sep 2026 (3)
+- Home CTA secondary button: "Corporate Well-being" -> "Book a session" linking to tealfeed booking URL (FinalCta supports external href).
+- Anshita education: plain line-by-line list, no box (shared component, both Home and About).
+- Corporate page: testimonials carousel moved above Moments/glimpses section.
+- Individual Therapy page: added "What people have to say" moving testimonials (same as landing).
+- About logo: now circular, exactly like landing hero.
+- Contact form: verified enquiry email sends successfully (202) to OWNER_EMAIL=admin@peaceofmind.co.in. NOTE: user wrote "pieceofmind" this time vs existing "peaceofmind" - needs confirmation.

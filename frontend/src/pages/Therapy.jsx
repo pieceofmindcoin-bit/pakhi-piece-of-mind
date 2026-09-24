@@ -4,6 +4,7 @@ import MaskedLines from "@/components/MaskedLines";
 import SectionIntro from "@/components/SectionIntro";
 import ButtonLink from "@/components/ButtonLink";
 import FinalCta from "@/components/FinalCta";
+import { TestimonialsSection, TESTIMONIALS } from "@/components/Testimonials";
 
 const CouchGraphic = () => (
   <svg viewBox="0 0 360 260" className="w-64 lg:w-72" role="img" aria-label="Minimal illustration of a calm green therapy couch">
@@ -174,6 +175,15 @@ const Therapy = () => (
         </div>
       </div>
     </section>
+
+    <TestimonialsSection
+      sectionTestId="therapy-testimonials-section"
+      titleTestId="therapy-testimonials-title"
+      marqueeTestId="therapy-testimonials-marquee"
+      ariaLabel="What people have to say"
+      title={<>What people <em className="italic text-sage">have to say.</em></>}
+      items={TESTIMONIALS}
+    />
 
     <FinalCta
       testId="therapy-cta"
