@@ -8,6 +8,7 @@ import MaskedLines from "@/components/MaskedLines";
 import SectionIntro from "@/components/SectionIntro";
 import MarqueeBar from "@/components/MarqueeBar";
 import Testimonials from "@/components/Testimonials";
+import AnshitaSection from "@/components/AnshitaSection";
 import FinalCta from "@/components/FinalCta";
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -191,61 +192,11 @@ const Home = () => (
 
     <Testimonials />
 
-    <section data-testid="home-anshita" className="bg-sand/60 border-b border-line/50 py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-14 lg:gap-20 items-center">
-        <div className="lg:col-span-5">
-          <Reveal scale>
-            <img
-              src="/assets/anshita.webp"
-              alt="Anshita Gaur, founder of Piece of Mind"
-              loading="lazy"
-              className="w-full max-w-md aspect-square object-cover object-[center_25%] rounded-[2rem]"
-              data-testid="home-anshita-photo"
-            />
-          </Reveal>
-        </div>
-        <div className="lg:col-span-7">
-          <Reveal>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.15] text-forest" data-testid="home-anshita-heading">
-              Hi, I’m <em className="italic text-sage-dark">Anshita Gaur.</em>
-            </h2>
-            <p className="mt-3 text-base lg:text-lg font-medium text-sage-dark" data-testid="home-anshita-subtitle">
-              Founder and Psychotherapist
-            </p>
-            <blockquote className="mt-8 font-serif italic text-xl lg:text-2xl leading-relaxed text-forest border-l-2 border-sage pl-6">
-              “Showing up as you are is the most courageous thing you can do, and you don’t have
-              to do it alone.”
-            </blockquote>
-            <div className="mt-8 space-y-5 text-base lg:text-lg leading-relaxed text-forest-soft">
-              <p>
-                I’m a certified psychotherapist who has supported 300+ individuals across the
-                globe on their mental health journeys.
-              </p>
-              <p>
-                I founded Piece of Mind with a simple belief that people don’t need to be fixed,
-                but they need space. Space to feel, to pause, to understand themselves without
-                judgment. My work is rooted in creating that gentler space, where I can walk with
-                you through the different pieces of your mind.
-              </p>
-            </div>
-            <div className="mt-10 rounded-[1.75rem] border border-line/70 bg-offwhite/60 p-7 lg:p-8" data-testid="home-anshita-education">
-              <h3 className="font-serif text-xl font-semibold text-forest">About the Founder</h3>
-              <p className="mt-5 text-sm font-semibold text-forest">Education</p>
-              <ul className="mt-3 space-y-2.5 text-sm lg:text-base leading-relaxed text-forest-soft">
-                <li>MSc Counselling Studies, University of Edinburgh, UK</li>
-                <li>COSCA Approved Certificate in Counselling Skills, UK</li>
-                <li>Diploma in Counselling and Psychotherapy, India</li>
-                <li>BA in Psychology, Sociology and Economics, Fergusson College, Pune</li>
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
+    <AnshitaSection testId="home-anshita" />
 
     <FinalCta
       testId="home-cta-section"
-      title={<>Ready to take a <em className="italic text-sage">gentle first step?</em></>}
+      title={<>Ready when <em className="italic text-sage">you are.</em></>}
       copy="Explore therapy for yourself, a workshop to learn from, or a wellbeing programme for your people."
       primary={{ to: "/contact", label: "Get in Touch", testId: "home-cta-contact" }}
       secondary={{ to: "/corporate-wellbeing", label: "Corporate Well-being", testId: "home-cta-corporate" }}

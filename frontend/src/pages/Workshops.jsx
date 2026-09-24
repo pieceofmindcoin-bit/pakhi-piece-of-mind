@@ -4,6 +4,17 @@ import SectionIntro from "@/components/SectionIntro";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import FinalCta from "@/components/FinalCta";
 
+const WorkshopGraphic = () => (
+  <svg viewBox="0 0 200 200" className="w-40 lg:w-44" role="img" aria-label="Minimal illustration of people gathered in a circle">
+    <circle cx="100" cy="100" r="54" fill="none" stroke="#B7C9B3" strokeWidth="2" />
+    <circle cx="100" cy="100" r="30" fill="none" stroke="#B7C9B3" strokeWidth="2" />
+    <circle cx="100" cy="100" r="9" fill="#2C3E3E" />
+    {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
+      <circle key={a} cx={100 + 78 * Math.cos((a * Math.PI) / 180)} cy={100 + 78 * Math.sin((a * Math.PI) / 180)} r="7" fill="#2C3E3E" />
+    ))}
+  </svg>
+);
+
 const CIRCLES = ["Groups", "Communities", "Organisations", "Specific needs"];
 
 const TAKEAWAYS = [
@@ -25,16 +36,28 @@ const Workshops = () => (
     />
 
     <section data-testid="workshops-hero" className="bg-sand/60 border-b border-line/50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
-        <Reveal className="max-w-2xl">
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="workshops-headline">
-            Learning that <em className="italic text-sage-dark">stays with you.</em>
-          </h1>
-          <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft">
-            Interactive workshops and gatherings that make conversations around mental wellbeing
-            approachable, practical and engaging. We also hold regular workshops online and in Pune.
-          </p>
-        </Reveal>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-7">
+          <Reveal className="max-w-2xl">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="workshops-headline">
+              Learning that <em className="italic text-sage-dark">stays with you.</em>
+            </h1>
+            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft">
+              Interactive workshops and gatherings that make conversations around mental wellbeing
+              approachable, practical and engaging. We also hold regular workshops online and in Pune.
+            </p>
+          </Reveal>
+        </div>
+        <div className="hidden lg:flex lg:col-span-5 justify-center">
+          <Reveal delay={0.15} scale>
+            <div className="relative" aria-hidden="true">
+              <div className="absolute -inset-4 rounded-full bg-sage-light" />
+              <div className="relative w-64 lg:w-72 aspect-square rounded-full bg-offwhite flex items-center justify-center" data-testid="workshops-hero-visual">
+                <WorkshopGraphic />
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
 

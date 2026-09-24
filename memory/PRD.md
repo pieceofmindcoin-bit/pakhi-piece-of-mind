@@ -51,3 +51,13 @@ No authentication in this app. See /app/memory/test_credentials.md.
 - Workshops & Events gallery: replaced 2 old photos with user-uploaded photos (Workshop on attachment styles, Letter to 2026 - goal setting workshop), rotation fixed, 4:3 aspect.
 - Homepage testimonials: marquee faster (speed 52), no pause on hover/click, removed "Therapy client" labels, all cards equal height.
 - Corporate page: added "What teams have to say" moving testimonial carousel (4 corporate workshop testimonials, same style/speed/equal sizing).
+
+## Update - 24 Sep 2026 (2)
+- Basic SEO: OG/Twitter/canonical meta in index.html, robots.txt, sitemap.xml (domain peaceofmind.co.in assumed - confirm), Seo.jsx now updates OG/Twitter per page.
+- Socials added (Instagram, LinkedIn, WhatsApp wa.me/918999952843, Substack PLACEHOLDER pieceofmind.substack.com - confirm, Email) to FinalCta (all pages) and footer.
+- Home + About share AnshitaSection component: removed "About the Founder" box, education now plain paragraph. About Anshita section now identical to landing.
+- Home CTA title: "Ready when you are." Header CTA: "Book a session" (desktop+mobile).
+- Therapy hero: sage green bg, couch graphic circular.
+- About: removed "A space to be human" hero; "Therapy that meets you where you are" is now first section (sage bg, circular logo); Values cards bigger, headings beside green dot.
+- Workshops hero: added simple circular SVG graphic (people in a circle).
+- Verified at 1366px and 375px via screenshots; robots.txt/sitemap.xml serve correctly.

@@ -57,7 +57,7 @@ const Header = () => {
             data-testid="nav-contact-cta"
             className="rounded-full bg-forest px-6 py-2.5 text-sm font-semibold text-offwhite transition-colors duration-300 hover:bg-forest-soft"
           >
-            Get in Touch
+            Book a session
           </Link>
         </nav>
         <button
@@ -104,7 +104,7 @@ const Header = () => {
             data-testid="mobile-nav-contact-cta"
             className="mt-2 inline-flex w-fit rounded-full bg-forest px-6 py-2.5 text-sm font-semibold text-offwhite"
           >
-            Get in Touch
+            Book a session
           </Link>
         </nav>
       </div>

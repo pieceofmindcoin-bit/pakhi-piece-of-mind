@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import ButtonLink from "@/components/ButtonLink";
+import { SOCIALS } from "@/components/Footer";
 
 const FinalCta = ({ title, copy, primary, secondary, testId = "final-cta" }) => (
   <section data-testid={testId} className="bg-forest">
@@ -27,6 +28,21 @@ const FinalCta = ({ title, copy, primary, secondary, testId = "final-cta" }) => 
               <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           )}
+        </div>
+        <div className="mt-9 flex justify-center gap-3" data-testid={`${testId}-socials`}>
+          {SOCIALS.map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              data-testid={`${testId}-social-${label.toLowerCase()}`}
+              className="w-10 h-10 rounded-full border border-offwhite/25 flex items-center justify-center text-offwhite/70 transition-colors duration-300 hover:bg-sage hover:text-forest hover:border-sage"
+            >
+              <Icon size={17} />
+            </a>
+          ))}
         </div>
       </Reveal>
     </div>

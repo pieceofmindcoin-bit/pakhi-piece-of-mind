@@ -57,14 +57,14 @@ const Therapy = () => (
       description="1:1 therapy, on your terms. Non-judgmental, compassionate and confidential services. Available online worldwide and in person in Pune."
     />
 
-    <section data-testid="therapy-hero" className="bg-sand/60 border-b border-line/50">
+    <section data-testid="therapy-hero" className="bg-sage border-b border-line/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 grid lg:grid-cols-12 gap-14 items-center">
         <div className="lg:col-span-7">
           <Reveal>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="therapy-headline">
-              1:1 therapy, on <em className="italic text-sage-dark">your terms.</em>
+              1:1 therapy, on <em className="italic text-forest/70">your terms.</em>
             </h1>
-            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl" data-testid="therapy-hero-copy">
+            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest/85 max-w-xl" data-testid="therapy-hero-copy">
               Non-judgmental, compassionate and confidential services
               <br />
               Available online worldwide and in person in Pune
@@ -79,8 +79,8 @@ const Therapy = () => (
         <div className="hidden lg:flex lg:col-span-5 justify-center">
           <Reveal delay={0.15} scale>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-t-[999px] rounded-b-[2rem] bg-sage-light" aria-hidden="true" />
-              <div className="relative w-72 lg:w-80 aspect-[4/5] rounded-t-[999px] rounded-b-[2rem] bg-sand flex items-center justify-center" data-testid="therapy-hero-visual">
+              <div className="absolute -inset-4 rounded-full bg-offwhite/50" aria-hidden="true" />
+              <div className="relative w-72 lg:w-80 aspect-square rounded-full bg-sand flex items-center justify-center" data-testid="therapy-hero-visual">
                 <CouchGraphic />
               </div>
             </div>
