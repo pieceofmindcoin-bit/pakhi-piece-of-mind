@@ -5,6 +5,7 @@ import SectionIntro from "@/components/SectionIntro";
 import ButtonLink from "@/components/ButtonLink";
 import FinalCta from "@/components/FinalCta";
 import { TestimonialsSection, TESTIMONIALS } from "@/components/Testimonials";
+import { BOOKING_URL } from "@/components/Header";
 
 const CouchGraphic = () => (
   <svg viewBox="0 0 360 260" className="w-64 lg:w-72" role="img" aria-label="Minimal illustration of a calm green therapy couch">
@@ -71,7 +72,7 @@ const Therapy = () => (
               Available online worldwide and in person in Pune
             </p>
             <div className="mt-10">
-              <ButtonLink to="/contact" testId="therapy-hero-cta" withArrow>
+              <ButtonLink href={BOOKING_URL} testId="therapy-hero-cta" withArrow>
                 Book a therapy session
               </ButtonLink>
             </div>
@@ -189,7 +190,7 @@ const Therapy = () => (
       testId="therapy-cta"
       title={<>Ready when <em className="italic text-sage">you are.</em></>}
       copy="Book a 15-minute consultation. No pressure to continue."
-      primary={{ to: "/contact", label: "Book a Therapy Session", testId: "therapy-cta-book" }}
+      primary={{ href: BOOKING_URL, label: "Book a Therapy Session", testId: "therapy-cta-book" }}
     />
   </>
 );

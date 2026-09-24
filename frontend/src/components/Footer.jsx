@@ -21,7 +21,7 @@ export const SOCIALS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/pieceofmindmh", Icon: Linkedin },
   { label: "WhatsApp", href: "https://wa.me/918999952843", Icon: WhatsAppIcon },
   { label: "Substack", href: "https://pieceofmind.substack.com", Icon: SubstackIcon },
-  { label: "Email", href: "mailto:admin@peaceofmind.co.in", Icon: Mail },
+  { label: "Email", href: "mailto:admin@pieceofmind.co.in", Icon: Mail },
 ];
 
 const Footer = () => (
@@ -57,8 +57,8 @@ const Footer = () => (
         <h3 className="font-serif font-semibold text-sm tracking-[0.18em] uppercase text-sage">Contact</h3>
         <ul className="space-y-3 text-sm text-offwhite/70">
           <li>
-            <a href="mailto:admin@peaceofmind.co.in" data-testid="footer-email" className="transition-colors duration-300 hover:text-offwhite">
-              admin@peaceofmind.co.in
+            <a href="mailto:admin@pieceofmind.co.in" data-testid="footer-email" className="transition-colors duration-300 hover:text-offwhite">
+              admin@pieceofmind.co.in
             </a>
           </li>
           <li>

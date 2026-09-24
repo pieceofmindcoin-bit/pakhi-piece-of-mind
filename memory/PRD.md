@@ -69,3 +69,7 @@ No authentication in this app. See /app/memory/test_credentials.md.
 - Individual Therapy page: added "What people have to say" moving testimonials (same as landing).
 - About logo: now circular, exactly like landing hero.
 - Contact form: verified enquiry email sends successfully (202) to OWNER_EMAIL=admin@peaceofmind.co.in. NOTE: user wrote "pieceofmind" this time vs existing "peaceofmind" - needs confirmation.
+
+## Update - 24 Sep 2026 (4)
+- Email spelling confirmed: pieceofmind. OWNER_EMAIL -> admin@pieceofmind.co.in (backend restarted, test enquiry sent = 202 Accepted). Footer email updated too. SEO domain canonical/sitemap/robots/og -> pieceofmind.co.in.
+- All booking buttons site-wide now open Tealfeed link (header desktop+mobile, home hero, home CTA secondary, therapy hero+CTA, about CTA). Shared BOOKING_URL in Header.jsx; ButtonLink/FinalCta support external href.

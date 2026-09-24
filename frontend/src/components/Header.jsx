@@ -3,6 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/Logo";
 
+export const BOOKING_URL = "https://tealfeed.com/pieceofmind/connect/call?callType=6992bf63d67b9d885a672a4b";
+
 export const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "Individual Therapy", to: "/individual-therapy" },
@@ -52,13 +54,15 @@ const Header = () => {
               {l.label}
             </NavLink>
           ))}
-          <Link
-            to="/contact"
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noreferrer"
             data-testid="nav-contact-cta"
             className="rounded-full bg-forest px-6 py-2.5 text-sm font-semibold text-offwhite transition-colors duration-300 hover:bg-forest-soft"
           >
             Book a session
-          </Link>
+          </a>
         </nav>
         <button
           type="button"
@@ -98,14 +102,16 @@ const Header = () => {
           >
             FAQ
           </NavLink>
-          <Link
-            to="/contact"
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noreferrer"
             onClick={() => setOpen(false)}
             data-testid="mobile-nav-contact-cta"
             className="mt-2 inline-flex w-fit rounded-full bg-forest px-6 py-2.5 text-sm font-semibold text-offwhite"
           >
             Book a session
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

@@ -3,6 +3,7 @@ import Reveal from "@/components/Reveal";
 import SectionIntro from "@/components/SectionIntro";
 import AnshitaSection from "@/components/AnshitaSection";
 import FinalCta from "@/components/FinalCta";
+import { BOOKING_URL } from "@/components/Header";
 
 const VALUES = [
   { title: "Compassion", copy: "We meet every story with warmth and without judgment." },
@@ -76,7 +77,7 @@ const About = () => (
       testId="about-cta"
       title={<>Ready when <em className="italic text-sage">you are.</em></>}
       copy="Book a 15-minute consultation. No pressure to continue."
-      primary={{ to: "/contact", label: "Book a Therapy Session", testId: "about-cta-book" }}
+      primary={{ href: BOOKING_URL, label: "Book a Therapy Session", testId: "about-cta-book" }}
     />
   </>
 );

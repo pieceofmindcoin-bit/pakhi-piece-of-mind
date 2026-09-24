@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-Sitemap: https://peaceofmind.co.in/sitemap.xml
+Sitemap: https://pieceofmind.co.in/sitemap.xml

@@ -15,7 +15,7 @@ const FinalCta = ({ title, copy, primary, secondary, testId = "final-cta" }) => 
           <p className="mt-5 text-base lg:text-lg text-offwhite/75 max-w-xl mx-auto leading-relaxed">{copy}</p>
         )}
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <ButtonLink to={primary.to} variant="light" testId={primary.testId} withArrow>
+          <ButtonLink to={primary.to} href={primary.href} variant="light" testId={primary.testId} withArrow>
             {primary.label}
           </ButtonLink>
           {secondary && (

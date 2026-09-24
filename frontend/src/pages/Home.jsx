@@ -10,6 +10,7 @@ import MarqueeBar from "@/components/MarqueeBar";
 import Testimonials from "@/components/Testimonials";
 import AnshitaSection from "@/components/AnshitaSection";
 import FinalCta from "@/components/FinalCta";
+import { BOOKING_URL } from "@/components/Header";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -120,14 +121,16 @@ const Home = () => (
             transition={{ duration: 0.9, delay: 0.9, ease: EASE }}
             className="mt-10"
           >
-            <Link
-              to="/contact"
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noreferrer"
               data-testid="hero-cta-book"
               className="group inline-flex items-center gap-2 rounded-full bg-offwhite px-8 py-3.5 text-sm font-semibold tracking-[0.06em] text-forest transition-all duration-300 hover:bg-sand hover:-translate-y-0.5"
             >
               BOOK A THERAPY SESSION
               <ArrowRight size={16} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            </a>
           </motion.div>
         </div>
         <HeroArt />
