@@ -26,6 +26,8 @@ const TAKEAWAYS = [
 const PHOTOS = [
   { src: "/assets/workshop-attachment.webp", alt: "Participants gathered in a bright café space during a workshop on attachment styles", caption: "Workshop on attachment styles" },
   { src: "/assets/workshop-letter-2026.webp", alt: "Participants writing letters during the Letter to 2026 goal setting workshop", caption: "Letter to 2026 - goal setting workshop" },
+  { src: "/assets/workshop-poster-letter.webp", alt: "Poster for A Letter to 2026, a reflective goal setting workshop held on 20 December 2025 at Forest Farmer Coffee Roasters, Pune", caption: "A Letter to 2026 · 20 Dec, 2025", tall: true },
+  { src: "/assets/workshop-poster-love.webp", alt: "Poster for Why I Love the Way I Do, a workshop on attachment styles held on 15 February 2026 at The Third Space, Pune", caption: "Why I Love the Way I Do · 15 Feb, 2026", tall: true },
 ];
 
 const Workshops = () => (
@@ -35,14 +37,14 @@ const Workshops = () => (
       description="Interactive wellbeing workshops and community events, customised for groups, communities and organisations. Held regularly online and in Pune."
     />
 
-    <section data-testid="workshops-hero" className="bg-sand/60 border-b border-line/50">
+    <section data-testid="workshops-hero" className="bg-sage border-b border-line/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <Reveal className="max-w-2xl">
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="workshops-headline">
-              Learning that <em className="italic text-sage-dark">stays with you.</em>
+              Learning that <em className="italic text-forest/70">stays with you.</em>
             </h1>
-            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft">
+            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest/85">
               Interactive workshops and gatherings that make conversations around mental wellbeing
               approachable, practical and engaging. We also hold regular workshops online and in Pune.
             </p>
@@ -51,7 +53,7 @@ const Workshops = () => (
         <div className="hidden lg:flex lg:col-span-5 justify-center">
           <Reveal delay={0.15} scale>
             <div className="relative" aria-hidden="true">
-              <div className="absolute -inset-4 rounded-full bg-sage-light" />
+              <div className="absolute -inset-4 rounded-full bg-sand" />
               <div className="relative w-64 lg:w-72 aspect-square rounded-full bg-offwhite flex items-center justify-center" data-testid="workshops-hero-visual">
                 <WorkshopGraphic />
               </div>
@@ -109,14 +111,14 @@ const Workshops = () => (
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionIntro id="photos" title={<>Glimpses of our <em className="italic text-sage-dark">workshops</em></>} />
         <div className="mt-14 grid sm:grid-cols-2 gap-6 lg:gap-10">
-          {PHOTOS.map(({ src, alt, caption }, i) => (
+          {PHOTOS.map(({ src, alt, caption, tall }, i) => (
             <Reveal key={src} delay={i * 0.1} scale>
               <figure className="group relative overflow-hidden rounded-[2rem]" data-testid={`workshop-photo-${i + 1}`}>
                 <img
                   src={src}
                   alt={alt}
                   loading="lazy"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  className={`w-full ${tall ? "aspect-[4/5]" : "aspect-[4/3]"} object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]`}
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-12 text-offwhite text-sm opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                   {caption}

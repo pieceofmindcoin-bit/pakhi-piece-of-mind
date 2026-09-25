@@ -73,3 +73,6 @@ No authentication in this app. See /app/memory/test_credentials.md.
 ## Update - 24 Sep 2026 (4)
 - Email spelling confirmed: pieceofmind. OWNER_EMAIL -> admin@pieceofmind.co.in (backend restarted, test enquiry sent = 202 Accepted). Footer email updated too. SEO domain canonical/sitemap/robots/og -> pieceofmind.co.in.
 - All booking buttons site-wide now open Tealfeed link (header desktop+mobile, home hero, home CTA secondary, therapy hero+CTA, about CTA). Shared BOOKING_URL in Header.jsx; ButtonLink/FinalCta support external href.
+
+## Update - 24 Sep 2026 (5)
+- Corporate + Workshops hero backgrounds -> sage green. Logo: removed "Mental Wellbeing", bigger "Piece of Mind" wordmark. Substack link -> open.substack.com/pub/pieceofmindmh. Workshops gallery: added 2 event posters (A Letter to 2026, Why I Love the Way I Do) in 4:5 frames.

@@ -20,13 +20,8 @@ const Logo = ({ light = false }) => (
     <span className="transition-transform duration-500 group-hover:-translate-y-0.5">
       <LogoMark width={52} />
     </span>
-    <span className="leading-tight">
-      <span className={`block font-serif font-semibold text-lg tracking-tight ${light ? "text-offwhite" : "text-forest"}`}>
-        Piece of Mind
-      </span>
-      <span className={`block text-[10px] tracking-[0.24em] uppercase ${light ? "text-offwhite/70" : "text-forest-soft"}`}>
-        Mental Wellbeing
-      </span>
+    <span className={`font-serif font-semibold text-2xl tracking-tight ${light ? "text-offwhite" : "text-forest"}`}>
+      Piece of Mind
     </span>
   </Link>
 );

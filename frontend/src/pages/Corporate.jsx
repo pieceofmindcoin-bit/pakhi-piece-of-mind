@@ -57,14 +57,14 @@ const Corporate = () => (
       description="Tailor-made wellbeing workshops and programmes for workplaces, organisations, schools and teams, from brief to delivery."
     />
 
-    <section data-testid="corporate-hero" className="border-b border-line/50 bg-sand/60">
+    <section data-testid="corporate-hero" className="border-b border-line/50 bg-sage">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <Reveal>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12] text-forest" data-testid="corporate-headline">
-              Wellbeing that works <em className="italic text-sage-dark">where you do.</em>
+              Wellbeing that works <em className="italic text-forest/70">where you do.</em>
             </h1>
-            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest-soft max-w-xl">
+            <p className="mt-6 text-base lg:text-lg leading-relaxed text-forest/85 max-w-xl">
               Piece of Mind brings meaningful wellbeing experiences into workplaces,
               organisations, schools, teams and groups: thoughtful, practical and deeply human.
             </p>

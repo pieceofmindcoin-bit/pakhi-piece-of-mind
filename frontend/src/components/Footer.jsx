@@ -20,7 +20,7 @@ export const SOCIALS = [
   { label: "Instagram", href: "https://www.instagram.com/pieceofmind.co.in", Icon: Instagram },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/pieceofmindmh", Icon: Linkedin },
   { label: "WhatsApp", href: "https://wa.me/918999952843", Icon: WhatsAppIcon },
-  { label: "Substack", href: "https://pieceofmind.substack.com", Icon: SubstackIcon },
+  { label: "Substack", href: "https://open.substack.com/pub/pieceofmindmh", Icon: SubstackIcon },
   { label: "Email", href: "mailto:admin@pieceofmind.co.in", Icon: Mail },
 ];
 
